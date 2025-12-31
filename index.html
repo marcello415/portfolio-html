@@ -4,72 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="dark light">
     <title>Marketing Developer - Marcello Miranda</title>
     <link rel="icon" type="image/png" sizes="32x32" href="images/fun.png">
     <meta name="description" content="Marcello Miranda, HTML Email Developer, based in United States.">
     <meta name="keywords" content="Email Developer, HTML Email Developer">
     <meta content="Marcello Miranda HTML Email Developer" name="author">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        :root {
-            font-size: 16px;
-        }
-
-        body {
-            min-height: 100vh;
-            font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
-
-        .mobilemenu {
-            border: 0;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        .mobilemenu:focus-visible {
-            outline: 2px solid #6cc;
-            outline-offset: 4px;
-        }
-
-        @media screen and (max-width: 776px) {
-            #menu.is-open {
-                display: block !important;
-            }
-        }
-
-        .hero-modern {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: clamp(360px, 70vh, 620px);
-            padding: 0;
-        }
-
-        .hero-modern .bg-text {
-            width: min(640px, 90%);
-            padding: clamp(1.5rem, 4vw, 3rem);
-            background: rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(6px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: clamp(0.35rem, 1.2vw, 0.85rem);
-            text-align: center;
-        }
-
-        .font-hero {
-            font-size: clamp(2.5rem, 6.8vw, 4.75rem) !important;
-            line-height: 1.05;
-        }
-
-        .keyword-hero {
-            font-size: clamp(1.15rem, 2.8vw, 2rem) !important;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-        }
-
-    </style>
     <script src="css/script.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW2RXWQE"></script>
     <script src="css/ana.js"></script>
@@ -80,32 +20,30 @@
     <header>
         <div id="header-wrap">
             <a href="index.html" class="logo vertical-center"><span>Marcello Miranda 💸</span></a>
-            <button type="button" class="mobilemenu" aria-label="Toggle navigation" aria-controls="menu"
-                aria-expanded="false"></button>
-            <nav aria-label="Primary navigation">
+            <a href="javascript:void(0);" onClick="toggle_visibility('menu');" class="mobilemenu"></a>
+            <nav>
                 <ul id="menu">
-                    <li><a href="#top">Home</a></li>
-                    <li><a href="#aboutme">About Me</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact" class="navright">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#aboutme">About Me</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#contact" target="_blank" class="navright">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <div class="navhide"></div>
-    <div class="image-wrap hero hero-modern">
+    <div class="image-wrap hero">
         <div class="bg-text">
             <h3>Hello I'm</h3>
             <span class="font-hero">Marcello Miranda</span>
-            <h1 class="keyword-hero">Marketig Developer</h1>
-            
+            <h1 class="keyword-hero">Marketing Developer</h1>
+            <h3>United States</h3>
         </div>
         <a id="aboutme"></a>
     </div>
 
 
-    <main>
-        <div id="port-wrap">
+    <div id="port-wrap">
         <section>
             <div class="job-title">
                 <h3>About Me</h3>
@@ -313,7 +251,7 @@
                                <div class="column">
                         <a href="portfolio-gap.html" class="content">
                             <img src="images/port-gap.jpg" alt="Gap Inc" style="width:100%">
-                            <h3>Gap Inc</h3>
+                            <h3>Apple Inc</h3>
                             <p>Email Development</p>
 
                         </a>
@@ -420,7 +358,6 @@
 
 
 
-    </main>
     <footer>
         <div id="footer-wrap">
             <div class="footer-social-icons">
@@ -436,37 +373,6 @@
         </div>
     </footer>
 
-    <script>
-        (function () {
-            const toggle = document.querySelector('.mobilemenu');
-            const menu = document.getElementById('menu');
-
-            if (toggle && menu) {
-                toggle.addEventListener('click', function () {
-                    const isOpen = menu.classList.toggle('is-open');
-                    toggle.setAttribute('aria-expanded', isOpen);
-                });
-            }
-
-            const scrollLinks = document.querySelectorAll('a[href^="#"]');
-            scrollLinks.forEach((link) => {
-                link.addEventListener('click', function (event) {
-                    const targetId = this.getAttribute('href');
-                    if (!targetId || targetId === '#') return;
-                    const targetEl = document.querySelector(targetId);
-                    if (!targetEl) return;
-                    event.preventDefault();
-                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    if (menu && menu.classList.contains('is-open')) {
-                        menu.classList.remove('is-open');
-                        if (toggle) {
-                            toggle.setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                });
-            });
-        })();
-    </script>
 
 </body>
 
