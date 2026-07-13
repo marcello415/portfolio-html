@@ -1,372 +1,1103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Marcello Miranda - Digital Content Technologist | AEM • SFMC</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="images/fun.png">
-    <meta name="description" content="Marcello Miranda, HTML Email Developer, based in United States.">
-    <meta name="keywords" content="Email Developer, HTML Email Developer">
-    <meta content="Marcello Miranda HTML Email Developer" name="author">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="css/script.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW2RXWQE"></script>
-    <script src="css/ana.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marcello Miranda: Content Manager, Web Producer &amp; Email Developer</title>
+  <meta name="description" content="Marcello Miranda is a content manager, web producer and email developer with 15+ years building digital content, HTML email and CMS-driven web at Apple, Gap Inc, Mettler-Toledo and more.">
+  <meta name="author" content="Marcello Miranda">
+  <meta name="theme-color" content="#161512">
+  <link rel="canonical" href="https://marcello415.github.io/portfolio-html/">
 
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Marcello Miranda: Content Manager, Web Producer &amp; Email Developer">
+  <meta property="og:description" content="15+ years building digital content, HTML email and CMS-driven web at scale. Selected work from Apple, Gap Inc, Mettler-Toledo and more.">
+  <meta property="og:url" content="https://marcello415.github.io/portfolio-html/">
+  <meta property="og:image" content="https://marcello415.github.io/portfolio-html/images/hero-aboutme-headshot.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Marcello Miranda: Content Manager, Web Producer &amp; Email Developer">
+  <meta name="twitter:description" content="15+ years building digital content, HTML email and CMS-driven web at scale.">
+  <meta name="twitter:image" content="https://marcello415.github.io/portfolio-html/images/hero-aboutme-headshot.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Marcello Miranda",
+  "jobTitle": "Content Manager, Web Producer & Email Developer",
+  "description": "Content manager, web producer and email developer with 15+ years building digital content, HTML email and CMS-driven web at scale.",
+  "url": "https://marcello415.github.io/portfolio-html/",
+  "image": "https://marcello415.github.io/portfolio-html/images/hero-aboutme-headshot.jpeg",
+  "email": "mailto:mrm.contact@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Las Vegas",
+    "addressRegion": "NV",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/marcellomiranda",
+    "https://marcellomiranda.com"
+  ],
+  "knowsAbout": [
+    "Content management",
+    "HTML email development",
+    "Adobe Experience Manager",
+    "Localization",
+    "SEO",
+    "CMS",
+    "Web production"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "The Select Group"
+  }
+}
+  </script>
+
+  <style>
+    :root{
+      --accent:#D6492F; --bg:#FBFAF7; --ink:#161512; --muted:#56534C;
+      --line:#E4E1D9; --mono:#9A968C; --paper:#fff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:84px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:'Archivo',system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%;height:auto}
+    h1,h2,h3,h4{margin:0}
+    ul{margin:0;padding:0;list-style:none}
+    a{color:inherit}
+    ::selection{background:var(--accent);color:#fff}
+    .mono{font-family:'Space Mono',monospace}
+    .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0}
+
+    /* Header / nav */
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(22,21,18,.07)}
+    .nav{max-width:1180px;margin:0 auto;padding:18px 40px;display:flex;justify-content:space-between;align-items:center}
+    .brand{font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none}
+    .nav-links{display:flex;gap:34px;align-items:center}
+    .nav-links a{font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.01em}
+    .nav-links a.is-contact{color:var(--accent)}
+    .nav-toggle-cb{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+    .nav-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:42px;height:42px;background:none;border:none;cursor:pointer;padding:0}
+    .nav-toggle span{width:18px;height:2px;background:var(--ink);display:block}
+    .nav-mobile{display:none}
+
+    .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+
+    /* Hero */
+    .hero{background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url('https://marcello415.github.io/portfolio-html/images/hero_bg.jpeg') center/cover no-repeat;color:#FBFAF7}
+    .hero-inner{max-width:1180px;margin:0 auto;padding:72px 40px 96px}
+    .hero-eyebrow{font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:40px}
+    .hero-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:64px;align-items:end}
+    .hero h1{font-weight:800;font-size:clamp(40px,6.2vw,82px);line-height:.98;letter-spacing:-.035em}
+    .hero-right{display:flex;flex-direction:column;align-items:flex-end;gap:26px;text-align:right;padding-bottom:8px}
+    .hero-right p{margin:0;font-size:17px;line-height:1.55;color:rgba(251,250,247,.82);max-width:300px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:#FBFAF7;color:#161512;font-weight:700;font-size:15px;text-decoration:none;padding:16px 28px;border:1.5px solid #FBFAF7;transition:background .15s,color .15s,border-color .15s}
+    .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+    section{scroll-margin-top:84px}
+
+    /* Section heading */
+    .sec-head{display:flex;justify-content:space-between;align-items:baseline;border-top:1.5px solid var(--ink);padding-top:22px;margin-bottom:34px}
+    .sec-head h2{font-weight:700;font-size:22px;letter-spacing:-.02em}
+    .sec-head .sec-meta{font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:var(--mono)}
+
+    /* Work grid */
+    #work{padding-bottom:40px}
+    .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:24px}
+    .card{display:flex;flex-direction:column;border:1.5px solid var(--line);background:var(--paper);cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;width:100%;text-decoration:none;transition:border-color .15s}
+    .card:hover{border-color:var(--ink)}
+    .card-thumb{position:relative;display:flex;align-items:flex-end;aspect-ratio:16/11;background:repeating-linear-gradient(45deg,#EFEDE7,#EFEDE7 8px,#F7F6F2 8px,#F7F6F2 16px);border-bottom:1.5px solid var(--line);padding:14px;overflow:hidden}
+    .card-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .card-num{position:absolute;top:0;left:0;font-weight:700;font-size:13px;color:#fff;background:var(--accent);padding:5px 9px;z-index:1}
+    .card-shot{font-weight:700;font-size:12px;color:#A8A498}
+    .card-body{display:flex;flex-direction:column;gap:10px;flex:1;padding:18px 18px 22px}
+    .card-title-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+    .card-name{font-weight:700;font-size:18px;letter-spacing:-.015em}
+    .card-period{font-size:12px;color:var(--mono);white-space:nowrap}
+    .card-desc{font-size:14px;line-height:1.5;color:var(--muted)}
+    .card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:6px}
+    .card-role{font-weight:700;font-size:11px;letter-spacing:.06em;color:#85817A;text-transform:uppercase}
+    .card-cta{font-weight:700;font-size:11px;color:var(--accent);white-space:nowrap}
+
+    /* About */
+    #about{padding:80px 40px}
+    .about-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.55fr;gap:64px;align-items:center;border-top:1.5px solid var(--line);padding-top:34px}
+    .about-media{display:flex;flex-direction:column;gap:18px}
+    .eyebrow{font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mono)}
+    .about-media img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;border:1.5px solid var(--line);filter:grayscale(1)}
+    .about-text{margin:0;padding-top:8px;font-weight:500;font-size:clamp(22px,2.4vw,30px);line-height:1.4;letter-spacing:-.015em;color:#262420;text-wrap:pretty}
+
+    /* Resume */
+    #resume{padding:20px 40px 40px}
+    .resume-row{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:26px 0;border-top:1px solid var(--line);align-items:start}
+    .resume-dates{margin:0;font-weight:700;font-size:13px;color:var(--mono);padding-top:4px}
+    .resume-main{display:flex;flex-direction:column;gap:8px}
+    .resume-title-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+    .resume-main h3{font-weight:700;font-size:20px;letter-spacing:-.02em}
+    .resume-co{font-weight:600;font-size:14px;color:var(--muted)}
+    .resume-main p{margin:0;font-size:15px;line-height:1.55;color:var(--muted);max-width:680px;text-wrap:pretty}
+    .toolkit{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:30px 0 0;border-top:1px solid var(--line);align-items:start}
+    .toolkit-label{font-weight:700;font-size:13px;color:var(--mono);padding-top:4px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{font-weight:600;font-size:13px;color:#262420;border:1.5px solid var(--line);padding:8px 14px;background:var(--paper)}
+    .dl-link{font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:var(--accent);text-decoration:none}
+
+    /* Footer */
+    .site-footer{background:#161512;color:#FBFAF7;margin-top:40px}
+    .footer-inner{max-width:1180px;margin:0 auto;padding:80px 40px 40px}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-bottom:56px;border-bottom:1px solid #34322D}
+    .footer-top h2{font-weight:800;font-size:clamp(34px,5vw,64px);line-height:.98;letter-spacing:-.035em;max-width:640px}
+    .footer-cta{font-family:'Space Mono',monospace;font-weight:700;font-size:17px;color:var(--accent);text-decoration:none;white-space:nowrap}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-top:48px}
+    .footer-col{display:flex;flex-direction:column;gap:12px}
+    .footer-name{font-weight:800;font-size:19px;letter-spacing:-.02em}
+    .footer-bio{font-size:14px;line-height:1.6;color:#9F9B92;max-width:260px}
+    .footer-label{font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6E6A62}
+    .footer-col a{font-weight:500;font-size:14px;color:#D9D5CC;text-decoration:none}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:64px;flex-wrap:wrap}
+    .copyright{font-family:'Space Mono',monospace;font-size:12px;color:#6E6A62}
+
+    /* Modal (CSS-only, :target) */
+    .modal{display:none;position:fixed;inset:0;z-index:100;align-items:flex-start;justify-content:center;padding:40px 20px;overflow:auto}
+    .modal:target{display:flex}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(14,13,10,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+    .modal > article{position:relative;z-index:1;width:100%;max-width:720px;margin:auto 0;padding:0;border:1.5px solid #161512;background:#FBFAF7;color:#161512;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+    .modal-hero{position:relative;display:flex;align-items:flex-end;aspect-ratio:16/7;background:repeating-linear-gradient(45deg,#EFEDE7,#EFEDE7 10px,#F7F6F2 10px,#F7F6F2 20px);border-bottom:1.5px solid #161512;padding:18px;overflow:hidden}
+    .modal-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .modal-num{position:absolute;top:0;left:0;font-weight:700;font-size:14px;color:#fff;background:var(--accent);padding:6px 11px;z-index:2}
+    .modal-close{position:absolute;top:16px;right:16px;z-index:3;width:38px;height:38px;border:1.5px solid rgba(251,250,247,.8);background:rgba(20,19,15,.45);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none}
+    .modal-body{display:flex;flex-direction:column;gap:22px;padding:30px 34px 36px}
+    .modal-title-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+    .modal-body h3{font-weight:800;font-size:28px;letter-spacing:-.025em;text-wrap:balance}
+    .modal-period{font-weight:700;font-size:13px;color:var(--mono)}
+    .modal-lead{margin:0;font-size:16px;line-height:1.6;color:#3A3833;text-wrap:pretty}
+    .modal-meta{margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0}
+    .modal-meta dt{font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mono)}
+    .modal-meta dd{margin:5px 0 0;font-weight:600;font-size:14px}
+    .modal-section-label{font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mono);margin-bottom:12px}
+    .results{display:flex;flex-direction:column;gap:12px}
+    .results li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#3A3833}
+    .results li::before{content:'\2014';color:var(--accent);font-weight:700}
+    .modal-links{margin-top:0}
+    .links{display:flex;flex-wrap:wrap;gap:8px}
+    .links a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13px;color:#161512;text-decoration:none;border:1.5px solid #161512;padding:8px 13px;background:#fff;transition:background .15s,color .15s,border-color .15s}
+    .links a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+    @media (max-width:860px){
+      .nav{padding:18px 24px}
+      .nav-links{display:none}
+      .nav-toggle{display:flex}
+      .nav-mobile{flex-direction:column;border-top:1px solid rgba(22,21,18,.07);padding:8px 24px 18px;gap:2px}
+      .nav-toggle-cb:checked ~ .nav-mobile{display:flex}
+      .nav-mobile a{font-weight:600;font-size:17px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(22,21,18,.06)}
+      .nav-mobile a.is-contact{color:var(--accent);border-bottom:0}
+      .hero-inner{padding:48px 24px 64px}
+      .hero-grid{grid-template-columns:1fr;gap:36px}
+      .hero-right{align-items:flex-start;text-align:left;padding-bottom:0}
+      .hero-right p{max-width:none}
+      .wrap{padding:0 24px}
+      #about{padding:64px 24px}
+      .about-grid{grid-template-columns:1fr;gap:20px}
+      #resume{padding:20px 24px 40px}
+      .resume-row,.toolkit{grid-template-columns:1fr;gap:8px}
+      .proj-grid{grid-template-columns:1fr 1fr}
+      .footer-inner{padding:64px 24px 40px}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+      .footer-top{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width:560px){
+      .proj-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
+    }
+  </style>
 </head>
+<body>
+  <a class="visually-hidden" href="#main">Skip to content</a>
 
-<body><a id="top"></a>
-    <header>
-        <div id="header-wrap">
-            <a href="index.html" class="logo vertical-center"><span>Marcello Miranda 💸</span></a>
-            <a href="javascript:void(0);" onClick="toggle_visibility('menu');" class="mobilemenu"></a>
-            <nav>
-                <ul id="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#aboutme">About Me</a></li>
-                    <li><a href="index.html#portfolio">Portfolio</a></li>
-                    <li><a href="index.html#contact" target="_blank" class="navright">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <div class="navhide"></div>
-    <div class="image-wrap hero">
-        <div class="bg-text">
-            <h3>Hello I'm</h3>
-            <span class="font-hero">Marcello Miranda</span>
-            <h1 class="keyword-hero">Digital Content Technologist</h1>
-            <h3>AEM • SFMC</h3>
-        </div>
-        <a id="aboutme"></a>
+  <header class="site-header">
+    <input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb" hidden>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top">Marcello Miranda</a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="is-contact" href="#contact">Contact &#8599;</a>
+      </div>
+      <label class="nav-toggle" for="nav-toggle-cb" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+    </nav>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a class="is-contact" href="#contact">contact &#8599;</a>
     </div>
+  </header>
 
+  <main id="main">
+    <span id="top"></span>
 
-    <div id="port-wrap">
-        <section>
-            <div class="job-title">
-                <h3>About Me</h3>
-            </div>
-            <div class="aboutmain">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Content Manager &middot; Building scalable digital experiences through content, technology, and process.</p>
+        <div class="hero-grid">
+          <h1 id="hero-title">I build digital content that ships on time and&nbsp;performs.</h1>
+          <div class="hero-right">
+            <p>Production-ready web content and the localization and CMS work behind it. Fifteen years shipping at scale, tested everywhere, broken nowhere.</p>
+            <a class="btn" href="#contact">Get in touch <span class="mono" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <p>Experienced Marketing Developer with over 10+ years experience in content management, web production,
-                    and email development. Specializes in integrating CMS, CRM, and MarTech platforms to enhance
-                    customer engagement and optimize marketing workflows. Expertise in dynamic content, personalization,
-                    A/B testing, and automation to drive business growth.</p>
+    <section id="work" class="wrap" aria-labelledby="work-title">
+      <div class="sec-head" style="border-top:none">
+        <h2 id="work-title">Selected work</h2>
+        <span class="sec-meta">2008–2026</span>
+      </div>
+      <ul class="proj-grid">
+        <li>
+          <a class="card" href="#proj-01">
+            <span class="card-thumb">
+              <span class="card-num mono">01</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/the_select_group_logo.jpeg" alt="The Select Group" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">The Select Group</span>
+                <span class="card-period mono">2026–Present</span>
+              </span>
+              <span class="card-desc">Build landing pages and store content for global markets, with product data managed in a PIM.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Content Specialist</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#proj-02">
+            <span class="card-thumb">
+              <span class="card-num mono">02</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/apple_logo.jpg" alt="Apple" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">Apple</span>
+                <span class="card-period mono">2024–25</span>
+              </span>
+              <span class="card-desc">Managed content across 100+ locales on Apple.com in Adobe Experience Manager.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Content Manager</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#proj-03">
+            <span class="card-thumb">
+              <span class="card-num mono">03</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/port-gap.jpg" alt="Gap Inc: email campaigns" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">Gap Inc</span>
+                <span class="card-period mono">2019–23</span>
+              </span>
+              <span class="card-desc">Hand-coded 10,000+ promotional emails for Gap Factory, Gap Factory Canada and Old Navy.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Email Developer</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#proj-04">
+            <span class="card-thumb">
+              <span class="card-num mono">04</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/port-mt.jpg" alt="Mettler-Toledo Rainin: mt.com/rainin" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">Mettler-Toledo Rainin</span>
+                <span class="card-period mono">2016–18</span>
+              </span>
+              <span class="card-desc">Built and managed mt.com/rainin in AEM, owning North American eCommerce and 23-language localization.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Global Web Producer</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#proj-05">
+            <span class="card-thumb">
+              <span class="card-num mono">05</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/port-alliant.jpg" alt="Alliant University: alliant.edu" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">Alliant University</span>
+                <span class="card-period mono">2013–16</span>
+              </span>
+              <span class="card-desc">Maintained 12 sites and 7,000+ pages, leading the responsive redesign of alliant.edu.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Senior Webmaster</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#proj-06">
+            <span class="card-thumb">
+              <span class="card-num mono">06</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/port-arcadian.jpg" alt="Arcadian Health: 11 sub-brands" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">Arcadian Health</span>
+                <span class="card-period mono">2010–12</span>
+              </span>
+              <span class="card-desc">Built and maintained 120 websites with 25,000+ pages across 11 sub-brands.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Web Specialist / Webmaster</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#proj-07">
+            <span class="card-thumb">
+              <span class="card-num mono">07</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/port-friendfinder.jpg" alt="FriendFinder Network: friendfinder.com" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">FriendFinder Network</span>
+                <span class="card-period mono">Earlier</span>
+              </span>
+              <span class="card-desc">Updated content and layouts across friendfinder.com, bigchurch.com and dine.com.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Front End Web Developer</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#proj-08">
+            <span class="card-thumb">
+              <span class="card-num mono">08</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/port-sfgov.jpg" alt="City &amp; County of San Francisco: SFGov.org" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">City &amp; County of San Francisco</span>
+                <span class="card-period mono">Earlier</span>
+              </span>
+              <span class="card-desc">Hand-coded 10,000+ pages for SFGov.org, DTIS Online and the SFGov intranet.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Web Production Specialist</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#proj-09">
+            <span class="card-thumb">
+              <span class="card-num mono">09</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/port-indexideas.jpg" alt="Indexideas.com: web page" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">Indexideas.com</span>
+                <span class="card-period mono">Project</span>
+              </span>
+              <span class="card-desc">Designed and developed an engaging web page from Photoshop with compelling copywriting.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Email / Web Developer</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#proj-10">
+            <span class="card-thumb">
+              <span class="card-num mono">10</span>
+              <img src="https://marcello415.github.io/portfolio-html/images/port-allaccessradio.jpg" alt="All Access Radio: radio site" loading="lazy" width="640" height="440">
+            </span>
+            <span class="card-body">
+              <span class="card-title-row">
+                <span class="card-name">All Access Radio</span>
+                <span class="card-period mono">Personal</span>
+              </span>
+              <span class="card-desc">A personal website for internet-radio enthusiasts, built in HTML with Photoshop visuals.</span>
+              <span class="card-foot">
+                <span class="card-role mono">Web Developer</span>
+                <span class="card-cta mono">Details &#8599;</span>
+              </span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-                <p>Worked with global brands like Apple and Gap Inc., managing multi-regional content across 100+
-                    locales, developing high-impact email marketing campaigns, and implementing data-driven digital
-                    strategies.</p>
+    <section id="about" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div class="about-media">
+          <h2 id="about-title" class="eyebrow">About</h2>
+          <img src="https://marcello415.github.io/portfolio-html/images/hero-aboutme-headshot.jpeg" alt="Portrait of Marcello Miranda" loading="lazy" width="480" height="600">
+        </div>
+        <p class="about-text" style="font-size: 20px">I've helped some of the world's largest brands deliver accurate, consistent digital experiences at scale. My work has included managing content for Apple.com across more than 100 locales, developing email campaigns for Gap Inc. brands, and supporting global storefronts powered by complex PIM and CMS platforms.<br><br>Whether I'm building content, improving workflows, or solving technical publishing challenges, I enjoy creating systems that are reliable, scalable, and easy for teams to work with. When the content is seamless and the process feels effortless, I know I've done my job.</p>
+      </div>
+    </section>
 
-                <p>Skills & Expertise</p>
+    <section id="resume" class="wrap" aria-labelledby="resume-title">
+      <div class="sec-head">
+        <h2 id="resume-title">Résumé</h2>
+      </div>
+      <ul class="resume-list">
+      <li class="resume-row">
+        <p class="resume-dates mono">May 2026–Present</p>
+        <div class="resume-main">
+          <div class="resume-title-row">
+            <h3>Content Specialist</h3>
+            <span class="resume-co">The Select Group &middot; Remote</span>
+          </div>
+          <p>Manage marketing content for global markets, building landing pages and online store content, maintaining product data in a PIM system, processing daily content requests through a ticketing system, and collaborating with engineering, marketing and product to keep content consistent across global storefronts.</p>
+        </div>
+      </li>
+      <li class="resume-row">
+        <p class="resume-dates mono">Jan 2024–Mar 2025</p>
+        <div class="resume-main">
+          <div class="resume-title-row">
+            <h3>Content Manager</h3>
+            <span class="resume-co">Apple Inc. (Contract) &middot; Sunnyvale, CA</span>
+          </div>
+          <p>Managed content across 100+ locales on Apple.com in Adobe Experience Manager, supporting launches, campaigns and updates, running UAT across author and stage environments, authoring SOPs and in-house tools, and mentoring new team members in California and India.</p>
+        </div>
+      </li>
+      <li class="resume-row">
+        <p class="resume-dates mono">Mar 2019–Jun 2023</p>
+        <div class="resume-main">
+          <div class="resume-title-row">
+            <h3>Email Developer</h3>
+            <span class="resume-co">Gap Inc &middot; San Francisco, CA</span>
+          </div>
+          <p>Built and launched 10,000+ promotional and lifecycle email campaigns across Gap Inc brands in Salesforce Marketing Cloud, using AMPscript for personalization and A/B logic, integrating Movable Ink modules, and running full Litmus QA for CAN-SPAM compliance.</p>
+        </div>
+      </li>
+      <li class="resume-row">
+        <p class="resume-dates mono">Jan 2016–Dec 2018</p>
+        <div class="resume-main">
+          <div class="resume-title-row">
+            <h3>Web Producer</h3>
+            <span class="resume-co">Mettler-Toledo Rainin &middot; Oakland, CA</span>
+          </div>
+          <p>Managed mt.com/rainin content in AEM and North American eCommerce in Hybris, led localization in 23 languages with Welocalize, ran an SEO bootcamp, and built KPI dashboards in Adobe and Google Analytics.</p>
+        </div>
+      </li>
+      <li class="resume-row">
+        <p class="resume-dates mono">Oct 2013–Jan 2016</p>
+        <div class="resume-main">
+          <div class="resume-title-row">
+            <h3>Senior Webmaster</h3>
+            <span class="resume-co">Alliant International University &middot; San Francisco, CA</span>
+          </div>
+          <p>Managed 12 websites with 7,000+ pages in Modern Campus CMS, led the responsive redesign of alliant.edu, automated admissions requests in Salesforce CRM, and built SEO microsites in WordPress.</p>
+        </div>
+      </li>
+      <li class="resume-row">
+        <p class="resume-dates mono">Jan 2010–Feb 2012</p>
+        <div class="resume-main">
+          <div class="resume-title-row">
+            <h3>Webmaster / CRM Specialist</h3>
+            <span class="resume-co">Arcadian Health &middot; Oakland, CA</span>
+          </div>
+          <p>Built and maintained 120 Medicare websites with 25,000+ pages, ensured Section 508 / ADA accessibility and Medicare Marketing Guideline compliance, and developed landing pages and email templates in HTML, CSS and PHP.</p>
+        </div>
+      </li>
+      </ul>
+      <div class="toolkit">
+        <p class="toolkit-label mono">Toolkit</p>
+        <ul class="chips">
+        <li class="chip mono">HTML5</li>
+        <li class="chip mono">CSS3</li>
+        <li class="chip mono">AMPscript</li>
+        <li class="chip mono">Salesforce Marketing Cloud</li>
+        <li class="chip mono">Movable Ink</li>
+        <li class="chip mono">Adobe Experience Manager</li>
+        <li class="chip mono">PIM</li>
+        <li class="chip mono">WordPress</li>
+        <li class="chip mono">Hybris</li>
+        <li class="chip mono">SharePoint</li>
+        <li class="chip mono">HubSpot</li>
+        <li class="chip mono">Litmus</li>
+        <li class="chip mono">BrowserStack</li>
+        <li class="chip mono">Section 508</li>
+        <li class="chip mono">CAN-SPAM</li>
+        <li class="chip mono">Photoshop</li>
+        <li class="chip mono">Figma</li>
+        <li class="chip mono">Google Analytics</li>
+        <li class="chip mono">Adobe Analytics</li>
+        <li class="chip mono">Ahrefs</li>
+        <li class="chip mono">SQL</li>
+        <li class="chip mono">Asana</li>
+        <li class="chip mono">Jira</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-                <ul>
-                    <li>CRM & Marketing Automation – Salesforce Marketing Cloud, Coherent Path, Moveable Ink</li>
-                    <li>Email Development & Personalization – HTML5, CSS3, AMPscript, responsive design, segmentation,
-                        automation</li>
-                    <li>Content Management & Web Production – Adobe Experience Manager (AEM), SharePoint, WordPress,
-                        Hybris CMS</li>
-                    <li>Data & Analytics – Google Analytics, Adobe Analytics, Accuranker, Ahrefs, Searchmetrics, A/B
-                        Testing</li>
-                    <li>Quality Assurance & Accessibility – Litmus, BrowserStack, Section 508 Compliance, ADA Standards
-                    </li>
-                    <li>Collaboration & Project Management – Jira, Basecamp, Figma, Canva, GitHub, Slack, Zoom</li>
-                    <li>Localization & Global Content Management – Experience managing digital content across 100+
-                        locales</li>
-                </ul>
+  <footer id="contact" class="site-footer" aria-labelledby="contact-title">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <h2 id="contact-title">Have a project in mind?</h2>
+        <a class="footer-cta" href="https://www.linkedin.com/in/marcellomiranda">Contact Me</a>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <p class="footer-name">Marcello Miranda</p>
+          <p class="footer-bio">Content manager based in Las Vegas, NV. Open to freelance and full-time work.</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer">
+          <p class="footer-label">Navigate</p>
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="https://www.linkedin.com/in/marcellomiranda/">Contact</a>
+        </nav>
+        <div class="footer-col">
+          <p class="footer-label">Elsewhere</p>
+          <a href="https://www.linkedin.com/in/marcellomiranda" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://marcellomiranda.com" target="_blank" rel="noopener noreferrer">Portfolio</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Marcello Miranda. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-
-                <p><a href="https://drive.google.com/file/d/1aN9ruDJ_EJUtPYQF2R_93aQm185Ir5IO/view?usp=sharing"
-                        target="_blank">Resume</a>
-                </p>
-            </div>
-
-
-
-            <div class="job-title">
-                <h3>My Experience</h3>
-            </div>
-
-            <div class="timeline">
-                <div class="container-job right">
-                    <div class="content-job">
-                        <h2>Content Manager</h2>
-                        <h3>Planet Interactive, Sunnyvale, California</h3>
-                        <h4>January 2024 - March 2025</h4>
-                        <ul>
-                            <li>Managed Apple.com content across 100+ locales, supporting launches, campaigns, and
-                                updates in Adobe Experience Manager (AEM).</li>
-                            <li>Maintained and updated content fragment models, reviewed pull requests, and worked with
-                                developers to align site changes.</li>
-                            <li>Ensured content met brand and legal standards, keeping global launches accurate and
-                                consistent.</li>
-                            <li>Authored SOPs and created in-house tools that streamlined onboarding and improved
-                                workflow efficiency.</li>
-                            <li>Trained and mentored new team members in California and India to strengthen global
-                                collaboration.</li>
-                        </ul>
-
-                    </div>
-                </div>
-                <div class="container-job left">
-                    <div class="content-job">
-                        <h2>Email Marketing Specialist</h2>
-                        <h3>Gap Inc, San Francisco,CA</h3>
-                        <h4>March 2019 – May 2023</h4>
-                        <ul>
-                            <li>Built, tested deployed 10,000+ email campaigns across all Gap brands using Salesforce
-                                Marketing Cloud (SFMC), HTML/CSS, and AMPscript.</li>
-                            <li>Developed dynamic content for subject lines, A/B testing, and personalization, improving
-                                open/click rates using AMPscript.</li>
-                            <li>Built interactive features with Movable Ink that drove stronger customer engagement
-                                across seasonal campaigns.</li>
-                            <li>Performed QA testing in Litmus, achieving near-perfect rendering accuracy across
-                                platforms and clients.</li>
-                            <li>Partnered with campaign managers to execute campaigns in SFMC and Coherent Path with
-                                consistent on-time delivery.</li>
-                            <li>Assisted with template edits, data extension setup, and SQL validation to ensure
-                                accurate campaign execution.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="container-job right">
-                    <div class="content-job">
-                        <h2>Digital Marketing Specialist</h2>
-                        <h3>Mettler-Toledo Rainin, LLC, Oakland , CA</h3>
-                        <h4>January 2016 – December 2018</h4>
-                        <ul>
-                            <li>Managed website content & digital assets for mt.com/rainin in Adobe Experience Manager.
-                            </li>
-                            <li>Managed eCommerce content for North American eCommerce presence in Hybrus CMS and Hybrus
-                                Management Console.</li>
-                            <li>Coordinated translation & localization in 23 languages with Welocalize, ensuring
-                                accuracy across global sites.</li>
-                            <li>Led an SEO bootcamp with tools like Ahrefs, Accuranker, and Searchmetrics that boosted
-                                search visibility and supported sales growth.</li>
-                            <li>Maintained the SharePoint intranet, building pages, adding features, and managing user
-                                access.</li>
-                            <li>Built and maintained KPI dashboards in Adobe Analytics and Google Analytics to measure
-                                engagement and inform digital strategy.</li>
-                            <li>Supported email marketing campaigns by preparing content, coding templates, and tracking
-                                engagement using Salesforce Marketing Cloud.</li>
-                            <li>Supervised third-party developers via Upwork and Jira.</li>
-
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="container-job left">
-                    <div class="content-job">
-                        <h2>Senior Web Producer</h2>
-                        <h3>Alliant International University, San Francisco , CA</h3>
-                        <h4>October 2013 – January 2016</h4>
-                        <ul>
-                            <li>Managed and maintained 12 websites with 7,000+ pages, ensuring uptime and consistent
-                                updates.</li>
-                            <li>Led the redesign and launch of alliant.edu in HTML5 with responsive design in Modern
-                                Campus CMS, increasing mobile traffic.</li>
-                            <li>Built SEO-focused microsites in WordPress, improving organic visibility.</li>
-                            <li>Developed internal workflows in Desk.com that streamlined live chat support and response
-                                times.</li>
-                            <li>Updated student portal content in Jenzabar 4.3, improving navigation and usability.</li>
-                            <li>Automated student service and admissions requests in Salesforce CRM, reducing manual
-                                processing.</li>
-                            <li>Partnered with vendors through Jira and Upwork to deliver marketing content and assets.
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="container-job right">
-                    <div class="content-job">
-                        <h2>Web Specialist</h2>
-                        <h3>Arcadian Health, Oakland, CA</h3>
-                        <h4>January 2010 - February 2012</h4>
-                        <ul>
-                            <li>Built and maintained 120 Medicare websites with 25,000+ pages using Photoshop,
-                                Dreamweaver, HTML, CSS, PHP, and JavaScript.</li>
-                            <li>Coordinated with departments to ensure all content aligned with Medicare Marketing
-                                Guidelines.</li>
-                            <li>Conducted Section 508 accessibility testing to meet federal accessibility standards.
-                            </li>
-                            <li>Developed landing pages, email templates, and PPC campaign pages in HTML, CSS, and PHP.
-                            </li>
-                            <li>Tracked and analyzed SEO performance with Google Analytics, SEOmoz, and Market Samurai.
-                            </li>
-                            <li>Created and shared Salesforce CRM reports with management to track campaign performance.
-                            </li>
-
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="container-job left">
-                    <div class="content-job">
-                        <h2>Front End Web Developer</h2>
-                        <h3>Friendfinder Networks Inc, Sunnyvale, CA</h3>
-                        <h4>January 2007 - December 2009</h4>
-                        <ul>
-                            <li>Updated web content and layouts. Sites included: friendfinder.com, bigchurch.com and
-                                dine.com.
-                                PSD to HTML to full working web pages using Photoshop, Dreamweaver, HTML, CSS, and Perl.
-                            </li>
-                            <li>Re-coded existing legacy HTML into table-less layouts across on Friendfinder properties
-                                using HTML and CSS.</li>
-                            <li>Maintained cross browser compatibility for all major browsers. IE6, Firefox, Chrome,
-                                Opera and Safari.</li>
-                            <li>Developed email pages using HTML and CSS. Targeting email providers such as Hotmail,
-                                Yahoo,
-                                and Gmail.</li>
-                            <li>Worked with the QA - quality assurance team to search and fix site wide bugs using
-                                Bugzilla.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="container-job right">
-                    <div class="content-job">
-                        <h2>Web Production Specialist</h2>
-                        <h3>City and County of San Francisco, San Francisco, CA</h3>
-                        <h4>March 2001 - April 2006</h4>
-                        <ul>
-                            <li>Hand-coded over 10,000 web pages for SFGov.org, DTIS Online, and SFGov Intranet</li>
-                            <li>Regularly updated departmental content</li>
-                            <li>Served as principal web designer for SFGov web properties</li>
-                        </ul><a id="portfolio"></a>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="job-title">
-                <h3>My Work</h3>
-            </div>
-            <!-- MAIN (Center website) -->
-            <div class="main">
-
-                <!-- Portfolio Gallery Grid -->
-                <div class="row">
-         
-                    <div class="column">
-                        <a href="portfolio-gap.html" class="content">
-                            <img src="images/port-gap.jpg" alt="Gap Inc" style="width:100%">
-                            <h3>Gap Inc</h3>
-                            <p>Email Development</p>
-
-                        </a>
-                    </div>
-
-                    <div class="column">
-                        <a href="portfolio-mt.html" class="content">
-                            <img src="images/port-mt.jpg" alt="Mettler-Toledo Rainin" style="width:100%">
-                            <h3>Mettler-Toledo Rainin</h3>
-                            <p>Web Development</p>
-
-                        </a>
-                    </div>
-
-                    <div class="column">
-                        <a href="portfolio-alliant.html" class="content">
-                            <img src="images/port-alliant.jpg" alt="Alliant University" style="width:100%">
-                            <h3>Alliant University</h3>
-                            <p>Web Development</p>
-                        </a>
-                    </div>
-
-
-
-                    <div class="column">
-                        <a href="portfolio-arcadian.html" class="content">
-                            <img src="images/port-arcadian.jpg" alt="Arcadian Health" style="width:100%">
-                            <h3>Arcadian Health</h3>
-                            <p>Web Development</p>
-                        </a>
-                    </div>
-                    <div class="column">
-                        <a href="portfolio-ff.html" class="content">
-                            <img src="images/port-friendfinder.jpg" alt="FriendFinder Network" style="width:100%">
-                            <h3>FriendFinder Network</h3>
-                            <p>Web Development</p>
-                        </a>
-                    </div>
-                    <div class="column">
-                        <a href="portfolio-sfgov.html" class="content">
-                            <img src="images/port-sfgov.jpg" alt="City County of San Francisco" style="width:100%">
-                            <h3>City County of San Francisco</h3>
-                            <p>Web Development</p>
-                        </a>
-                    </div>
-
-
-                    <div class="column">
-                        <a href="portfolio-indexideas.html" class="content">
-                            <img src="images/port-indexideas.jpg" alt="Indexideas" style="width:100%">
-                            <h3>Indexideas</h3>
-                            <p>Web Development</p>
-                        </a>
-                    </div>
-                    <div class="column">
-                        <a href="portfolio-allaccessradio.html" class="content">
-                            <img src="images/port-allaccessradio.jpg" alt="Allaccessradio" style="width:100%">
-                            <h3>Allaccessradio</h3>
-                            <p>Web Development</p>
-                        </a>
-                    </div>
-                    <!-- END GRID -->
-                </div>
-            </div>
+  <div id="proj-01" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-01-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">01</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/the_select_group_logo.jpeg" alt="The Select Group" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-01-title">The Select Group</h3>
+          <span class="modal-period mono">2026–Present</span>
+        </div>
+        <p class="modal-lead">As a Content Specialist at The Select Group, I manage marketing content end to end, building landing pages and online store content for global markets, maintaining product data in a PIM system, and ensuring content stays accurate and consistent across multiple global storefronts.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Content Specialist</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Content &amp; PIM</dd></div>
+          <div><dt class="mono">Period</dt><dd>2026–Present</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Build landing pages and online store content for global markets</li>
+            <li>Set up and maintain product data in a PIM system: product codes, dimensions, colors, sizes and catalog details</li>
+            <li>Organize, verify and update content within proprietary CMS tools</li>
+            <li>Work a ticketing system to pick up and process content requests daily, troubleshooting issues reported by stakeholders</li>
+            <li>Support new product launches and campaigns with accurate, timely content deployment</li>
+            <li>Collaborate with engineering, marketing and product teams in daily stand-ups to ensure content consistency across global storefronts</li>
+          </ul>
         </section>
-    </div>
-    <div class="image-wrap looking">
-        <div class="bg-text">
-            <h2>What am I Looking for?</h2>
-
-            <p>I am interested in joining an organization that utilizes and provides expertise in a range of tech
-                stacks, such as HTML, CSS, JavaScript, and popular email marketing platforms like MailChimp, Constant
-                Contact, or Salesforce Marketing Cloud. Also web platforms such as Adobe Experience Manager.</p>
-
-
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">PIM</li>
+            <li class="chip mono">CMS</li>
+            <li class="chip mono">Landing pages</li>
+            <li class="chip mono">Global storefronts</li>
+            <li class="chip mono">Ticketing</li>
+            <li class="chip mono">Cross-functional</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://www.apple.com/store" target="_blank" rel="noopener noreferrer">apple.com/store <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div id="proj-02" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-02-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">02</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/apple_logo.jpg" alt="Apple" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-02-title">Apple</h3>
+          <span class="modal-period mono">2024–25</span>
         </div>
-    </div>
-    <a id="contact"></a>
-    <div class="image-wrap fun">
-        <div class="bg-text">
-            <h2>Let's Work Together</h2>
-            <p>Contact me through my <a href="https://www.linkedin.com/in/marcellomiranda/" class="social-icon"
-                    target="_blank" style="color: #fff;">Linkedin</a> page and let's
-                discuss Content Manager, Web Producer & Email Developer opportunities! </p>
-            <p>I'm currently open for remote, hybrid full-time employment. </p>
-            <p>I look forward to hearing from you!</p>
-            <div class="footer-social-icons">
-                <ul class="social-icons">
-                    <li><a href="https://www.linkedin.com/in/marcellomiranda/" class="social-icon" target="_blank"><i
-                                class="fa fa-linkedin"></i></a></li>
-                </ul>
-            </div>
+        <p class="modal-lead">As a Content Manager (contract) at Apple, I managed web content across 100+ locales on Apple.com in Adobe Experience Manager, supporting product launches, campaigns and ongoing updates, running UAT across author and stage environments, and authoring documentation and tooling for the team.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Content Manager</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Global web content</dd></div>
+          <div><dt class="mono">Period</dt><dd>2024–25</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Managed content across 100+ locales on Apple.com in Adobe Experience Manager</li>
+            <li>Supported product launches, marketing campaigns and ongoing content updates</li>
+            <li>Ran UAT across author and stage environments to verify content before publish</li>
+            <li>Authored SOPs and built in-house tools to streamline the content workflow</li>
+            <li>Mentored and onboarded new team members across California and India</li>
+          </ul>
+        </section>
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">Adobe Experience Manager</li>
+            <li class="chip mono">Localization</li>
+            <li class="chip mono">UAT</li>
+            <li class="chip mono">Content management</li>
+            <li class="chip mono">Documentation</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://www.apple.com/mac/" target="_blank" rel="noopener noreferrer">apple.com/mac <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://www.apple.com/ipad/" target="_blank" rel="noopener noreferrer">apple.com/ipad <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div id="proj-03" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-03-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">03</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/port-gap.jpg" alt="Gap Inc" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-03-title">Gap Inc</h3>
+          <span class="modal-period mono">2019–23</span>
         </div>
-    </div>
-
-
-
-
-    <footer>
-        <div id="footer-wrap">
-            <div class="footer-social-icons">
-                <ul class="social-icons">
-                    <li><a href="https://www.linkedin.com/in/marcellomiranda/" class="social-icon" target="_blank"><i
-                                class="fa fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/marcello415" class="social-icon" target="_blank"><i
-                                class="fa fa-github"></i></a></li>
-                </ul>
-            </div>
-            <p class="footerlogo">© Marcello Miranda 💸</p>
-            <a href="#top">Top of Page</a>
+        <p class="modal-lead">As an Email Developer at Gap Inc, I hand-coded promotional email across Gap Factory, Gap Factory Canada and Old Navy, converting Photoshop comps into production-ready, cross-client HTML and shipping on tight schedules for the United States and Canada markets.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Email Developer</dd></div>
+          <div><dt class="mono">Focus</dt><dd>HTML email</dd></div>
+          <div><dt class="mono">Period</dt><dd>2019–23</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Coded over 10,000 email pages for Gap Factory, Gap Factory Canada and Old Navy</li>
+            <li>Hand-coded emails from PSDs using HTML, CSS, AMPscript, Salesforce Marketing Cloud, Movable Ink and Coherent Path</li>
+            <li>QA-ed rendering across platforms, browsers and email clients with Litmus</li>
+            <li>Partnered with campaign managers to hit deadlines for the U.S. and Canada markets</li>
+            <li>Set up A/B testing content for emails</li>
+          </ul>
+        </section>
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">HTML</li>
+            <li class="chip mono">CSS</li>
+            <li class="chip mono">AMPscript</li>
+            <li class="chip mono">Salesforce Marketing Cloud</li>
+            <li class="chip mono">Movable Ink</li>
+            <li class="chip mono">Litmus</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://marcello415.github.io/gap-html/20230413_GFSUS_Promo_PM_TM_CP.html" target="_blank" rel="noopener noreferrer">Promo email: Apr 13 <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/gap-html/20230416_GFSUS_Promo_PM_TM_CP.html" target="_blank" rel="noopener noreferrer">Promo email: Apr 16 <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/gap-html/20230610_GFSUS_Promo_Merch_AM_Earner_CP.html" target="_blank" rel="noopener noreferrer">Merch AM · Earner: Jun 10 <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/gap-html/20230610_GFSUS_Promo_Merch_AM_NonEarner_CP.html" target="_blank" rel="noopener noreferrer">Merch AM · Non-Earner: Jun 10 <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/gap-html/20230610_GFSUS_Promo_PM_Earner_CP.html" target="_blank" rel="noopener noreferrer">PM · Earner: Jun 10 <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/gap-html/20230615_GFSUS_Promo_Merch_AM_TOP_CP.html" target="_blank" rel="noopener noreferrer">Merch AM · Top: Jun 15 <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div id="proj-04" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-04-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">04</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/port-mt.jpg" alt="Mettler-Toledo Rainin" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-04-title">Mettler-Toledo Rainin</h3>
+          <span class="modal-period mono">2016–18</span>
         </div>
-    </footer>
-
+        <p class="modal-lead">As Global Web Producer, I built and managed digital content for mt.com/rainin in Adobe Experience Manager, owned North American eCommerce in Hybris, and coordinated translation and localization across 23 languages.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Global Web Producer</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Web &amp; SEO</dd></div>
+          <div><dt class="mono">Period</dt><dd>2016–18</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Built, created and managed digital assets and content on mt.com/rainin in Adobe Experience Manager</li>
+            <li>Managed North American eCommerce content in Hybris CMS and the Hybris Management Console</li>
+            <li>Researched keywords and wrote titles, meta descriptions and content using Ahrefs, Accuranker and Searchmetrics</li>
+            <li>Managed translation and localization in 23 languages with Welocalize</li>
+            <li>Supported the SharePoint and Microsoft Azure presence within the company</li>
+            <li>Assembled KPI reports in Adobe Analytics and Google Analytics</li>
+            <li>Managed third-party programmers via Upwork and Jira</li>
+          </ul>
+        </section>
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">Adobe Experience Manager</li>
+            <li class="chip mono">Hybris</li>
+            <li class="chip mono">SEO</li>
+            <li class="chip mono">Welocalize</li>
+            <li class="chip mono">Adobe Analytics</li>
+            <li class="chip mono">SharePoint</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://marcello415.github.io/mt-html/images/mt-1.jpg" target="_blank" rel="noopener noreferrer">mt.com/rainin asset <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div id="proj-05" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-05-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">05</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/port-alliant.jpg" alt="Alliant University" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-05-title">Alliant University</h3>
+          <span class="modal-period mono">2013–16</span>
+        </div>
+        <p class="modal-lead">As Senior Webmaster, I managed and maintained 12 websites totalling over 7,000 unique pages, and led the responsive redesign and launch of alliant.edu in OU Campus CMS with HTML5.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Senior Webmaster</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Web &amp; CMS</dd></div>
+          <div><dt class="mono">Period</dt><dd>2013–16</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Regularly managed and maintained 12 websites with over 7,000 unique pages</li>
+            <li>Led the redesign and launch of alliant.edu with HTML5 responsive design in OU Campus CMS</li>
+            <li>Developed content-specific microsites in WordPress for SEO</li>
+            <li>Built an internal workflow that cut live-chat times by 20% using Desk.com</li>
+            <li>Managed content, code and interface for Section 508 accessibility requirements</li>
+            <li>Managed the migration of the website to a new staging environment in OU Campus CMS</li>
+            <li>Supported the student portal with administration and content updates in Jenzabar 4.3</li>
+          </ul>
+        </section>
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">OU Campus</li>
+            <li class="chip mono">WordPress</li>
+            <li class="chip mono">HTML5</li>
+            <li class="chip mono">Section 508</li>
+            <li class="chip mono">Desk.com</li>
+            <li class="chip mono">Jenzabar</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://marcello415.github.io/alliant-html/" target="_blank" rel="noopener noreferrer">alliant.edu <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div id="proj-06" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-06-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">06</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/port-arcadian.jpg" alt="Arcadian Health" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-06-title">Arcadian Health</h3>
+          <span class="modal-period mono">2010–12</span>
+        </div>
+        <p class="modal-lead">As Web Specialist and Webmaster, I built, managed and maintained 120 websites with over 25,000 unique pages across 11 sub-brands, keeping every page compliant with federal regulations.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Web Specialist / Webmaster</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Web &amp; accessibility</dd></div>
+          <div><dt class="mono">Period</dt><dd>2010–12</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Built, managed and maintained 120 websites with 25,000+ pages for 11 sub-brands using Photoshop, Dreamweaver, HTML, CSS, PHP and JavaScript</li>
+            <li>Liaised with all departments to keep website content current with federal regulation revisions</li>
+            <li>Managed and oversaw Section 508 testing activities to the Section 508 standard</li>
+            <li>Developed web pages for online press releases, emails and PPC landing pages using HTML, CSS and PHP</li>
+            <li>Tracked and generated monthly reports for online presence and SEO traffic using Google Analytics, SEOmoz and Market Samurai</li>
+          </ul>
+        </section>
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">HTML</li>
+            <li class="chip mono">CSS</li>
+            <li class="chip mono">PHP</li>
+            <li class="chip mono">JavaScript</li>
+            <li class="chip mono">Section 508</li>
+            <li class="chip mono">SEO</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://marcello415.github.io/arcadianhealth-html/index.html" target="_blank" rel="noopener noreferrer">Home <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/arcadianhealth-html/plans/index.html" target="_blank" rel="noopener noreferrer">Plans <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/arcadianhealth-html/plans/quickcompareplans.html" target="_blank" rel="noopener noreferrer">Quick compare plans <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div id="proj-07" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-07-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">07</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/port-friendfinder.jpg" alt="FriendFinder Network" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-07-title">FriendFinder Network</h3>
+          <span class="modal-period mono">Earlier</span>
+        </div>
+        <p class="modal-lead">As a Front End Web Developer, I updated web content and layouts across FriendFinder properties, converting Photoshop comps into working pages and modernizing legacy markup into table-less layouts.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Front End Web Developer</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Web &amp; email</dd></div>
+          <div><dt class="mono">Period</dt><dd>Earlier</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Updated content and layouts for friendfinder.com, bigchurch.com and dine.com (PSD to HTML) using Photoshop, Dreamweaver, HTML, CSS and Perl</li>
+            <li>Re-coded existing legacy HTML into table-less layouts across FriendFinder properties</li>
+            <li>Maintained cross-browser compatibility for IE6, Firefox, Chrome, Opera and Safari</li>
+            <li>Developed email pages in HTML and CSS targeting Hotmail, Yahoo and Gmail</li>
+            <li>Worked with the QA team to find and fix site-wide bugs using Bugzilla</li>
+          </ul>
+        </section>
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">HTML</li>
+            <li class="chip mono">CSS</li>
+            <li class="chip mono">Perl</li>
+            <li class="chip mono">Photoshop</li>
+            <li class="chip mono">Cross-browser</li>
+            <li class="chip mono">Bugzilla</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://marcello415.github.io/friendfinder-html/friendfinder.html" target="_blank" rel="noopener noreferrer">friendfinder.com <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/friendfinder-html/millionairemate.html" target="_blank" rel="noopener noreferrer">millionairemate.com <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div id="proj-08" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-08-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">08</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/port-sfgov.jpg" alt="City &amp; County of San Francisco" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-08-title">City &amp; County of San Francisco</h3>
+          <span class="modal-period mono">Earlier</span>
+        </div>
+        <p class="modal-lead">As a Web Production Specialist, I hand-coded over 10,000 web pages for SFGov.org, DTIS Online and the SFGov intranet, serving as principal web designer for the city’s web properties.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Web Production Specialist</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Web production</dd></div>
+          <div><dt class="mono">Period</dt><dd>Earlier</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Hand-coded over 10,000 web pages for SFGov.org, DTIS Online and the SFGov intranet</li>
+            <li>Regularly updated departmental content</li>
+            <li>Served as principal web designer for SFGov web properties</li>
+            <li>Converted PSD designs to HTML</li>
+          </ul>
+        </section>
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">HTML</li>
+            <li class="chip mono">CSS</li>
+            <li class="chip mono">PSD to HTML</li>
+            <li class="chip mono">Web production</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_index.html" target="_blank" rel="noopener noreferrer">SFGov.org home <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_%20parkrec.html" target="_blank" rel="noopener noreferrer">Parks &amp; Rec <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_%20portofsf.html" target="_blank" rel="noopener noreferrer">Port of SF <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_ethicscommission.html" target="_blank" rel="noopener noreferrer">Ethics Commission <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_filmcommission.html" target="_blank" rel="noopener noreferrer">Film Commission <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_firecommission.html" target="_blank" rel="noopener noreferrer">Fire Commission <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_mayorsofficeofhousing.html" target="_blank" rel="noopener noreferrer">Mayor's Office of Housing <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_officeofassessor.html" target="_blank" rel="noopener noreferrer">Office of the Assessor <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_officeofthecontroller.html" target="_blank" rel="noopener noreferrer">Office of the Controller <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_officeofthemayor.html" target="_blank" rel="noopener noreferrer">Office of the Mayor <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_officetreasurertaxcollector.html" target="_blank" rel="noopener noreferrer">Treasurer &amp; Tax Collector <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_planning.html" target="_blank" rel="noopener noreferrer">Planning <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/sfgov-html/sfgov_rentboard.html" target="_blank" rel="noopener noreferrer">Rent Board <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div id="proj-09" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-09-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">09</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/port-indexideas.jpg" alt="Indexideas.com" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-09-title">Indexideas.com</h3>
+          <span class="modal-period mono">Project</span>
+        </div>
+        <p class="modal-lead">Indexideas.com paired hand-coded HTML with Photoshop visuals and compelling copywriting to design and develop a visually appealing, engaging web page.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Email / Web Developer</dd></div>
+          <div><dt class="mono">Focus</dt><dd>HTML email</dd></div>
+          <div><dt class="mono">Period</dt><dd>Project</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Developed hand-coded email files from Photoshop files using HTML and CSS</li>
+            <li>Checked for rendering issues across multiple platforms and browsers</li>
+            <li>Converted PSD designs to HTML</li>
+          </ul>
+        </section>
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">HTML</li>
+            <li class="chip mono">CSS</li>
+            <li class="chip mono">Photoshop</li>
+            <li class="chip mono">Copywriting</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://marcello415.github.io/indexideas-html/index.html" target="_blank" rel="noopener noreferrer">indexideas.com <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div id="proj-10" class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-10-title">
+    <a class="modal-backdrop" href="#work" aria-label="Close"></a>
+    <article>
+      <a class="modal-close" href="#work" aria-label="Close">&times;</a>
+      <header class="modal-hero">
+        <span class="modal-num mono">10</span>
+        <img src="https://marcello415.github.io/portfolio-html/images/port-allaccessradio.jpg" alt="All Access Radio" loading="lazy" width="720" height="315">
+      </header>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="proj-10-title">All Access Radio</h3>
+          <span class="modal-period mono">Personal</span>
+        </div>
+        <p class="modal-lead">All Access Radio is a personal project: a dedicated website for internet-radio enthusiasts, developed in HTML and enhanced with Photoshop visuals to deliver an immersive online radio experience.</p>
+        <dl class="modal-meta">
+          <div><dt class="mono">Role</dt><dd>Web Developer</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Web &amp; design</dd></div>
+          <div><dt class="mono">Period</dt><dd>Personal</dd></div>
+        </dl>
+        <section aria-label="What I did">
+          <h4 class="modal-section-label mono">What I did</h4>
+          <ul class="results">
+            <li>Developed hand-coded files from Photoshop files using HTML and CSS</li>
+            <li>Checked for rendering issues across multiple platforms and browsers</li>
+            <li>Converted PSD designs to HTML</li>
+          </ul>
+        </section>
+        <section aria-label="Toolkit">
+          <h4 class="modal-section-label mono">Toolkit</h4>
+          <ul class="chips">
+            <li class="chip mono">HTML</li>
+            <li class="chip mono">CSS</li>
+            <li class="chip mono">Photoshop</li>
+          </ul>
+        </section>
+        <section class="modal-links" aria-label="Live links">
+          <h4 class="modal-section-label mono">Live links</h4>
+          <ul class="links">
+            <li><a href="https://marcello415.github.io/allaccessradio-html/index.html" target="_blank" rel="noopener noreferrer">Home <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+            <li><a href="https://marcello415.github.io/allaccessradio-html/listen.html" target="_blank" rel="noopener noreferrer">Listen <span class="mono" aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </div>
 
 </body>
-
 </html>
