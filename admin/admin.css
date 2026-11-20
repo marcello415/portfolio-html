@@ -126,7 +126,7 @@ main section[id],#contact{scroll-margin-top:88px}
 .cs-back:hover,.cs-back:focus-visible{color:#fff}
 .cs-num{font-size:12px;letter-spacing:.14em;color:#D8D4CA;margin:0 0 14px}
 .cs-hero h1{font-weight:800;font-size:clamp(40px,6vw,80px);line-height:.98;letter-spacing:-.035em;margin:0 0 24px;max-width:900px}
-.cs-lead{font-size:clamp(18px,1.8vw,22px);line-height:1.5;color:rgba(251,250,247,.85);max-width:720px;margin:0}
+.cs-lead{font-size:clamp(18px,1.8vw,22px);line-height:1.5;color:rgba(251,250,247,.85);max-width:none;margin:0}
 .cs-meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:12px 56px;margin:48px 0 0;padding-top:24px;border-top:1px solid rgba(251,250,247,.25)}
 .cs-meta dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#D8D4CA;margin-bottom:4px}
 .cs-meta dd{margin:0;font-weight:600}
