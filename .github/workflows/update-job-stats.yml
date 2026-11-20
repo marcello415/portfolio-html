@@ -1,0 +1,29 @@
+name: Update job search stats
+
+on:
+  schedule:
+    - cron: "17 14 * * *"   # daily, ~6–7 AM Pacific
+  workflow_dispatch:         # "Run workflow" button for a manual refresh
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pull numbers from Asana
+        env:
+          ASANA_TOKEN: ${{ secrets.ASANA_TOKEN }}
+        run: python .github/scripts/update_job_stats.py
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update job search stats from Asana"
+          git push
