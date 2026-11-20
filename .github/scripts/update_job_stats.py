@@ -8,7 +8,10 @@ import json, os, re, sys, urllib.request, urllib.parse
 from pathlib import Path
 
 PROJECT = os.environ.get("ASANA_PROJECT_GID", "1220250026925579")
-TOKEN = os.environ["ASANA_TOKEN"]
+TOKEN = os.environ.get("ASANA_TOKEN", "").strip().strip('"').removeprefix("Bearer ").strip()
+if not TOKEN:
+    sys.exit("ASANA_TOKEN secret is empty.")
+print(f"Token length {len(TOKEN)}, starts {TOKEN[:2]}…")
 APPLIED = {"Applied", "Interview", "Offer", "Rejected"}
 INTERVIEW = {"Interview", "Offer"}
 ROOT = Path(__file__).resolve().parents[2] / "admin"
