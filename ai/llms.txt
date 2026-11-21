@@ -1,0 +1,13 @@
+# Marcello Miranda: AI Workflow Automation
+
+> Digital specialist based in Las Vegas, NV who builds AI workflows that take repeatable work from intake to done, with a checklist and a human review before anything goes out. Open to full-time and contract roles.
+
+Contact: mrm.work415@gmail.com · https://www.linkedin.com/in/marcellomiranda
+
+## Core skills
+- AI workflow automation with Claude: custom skills that find, screen, draft, check and track work
+- Connecting tools: Gmail, Google Docs, Google Drive, Asana
+- Writing clear rules, checklists and SOPs so work is done the same way every time
+
+## Case studies
+- [Job Search Automation](https://marcello415.github.io/portfolio-html/ai/work/job-search-automation.html): Four Claude skills I built that find openings, write tailored cover letters, fill out applications and log every one. 517 applications so far, all tracked in one place.

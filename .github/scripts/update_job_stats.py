@@ -1,4 +1,4 @@
-"""Pull job-search numbers from the Asana "Job Search" board and write them into the admin site.
+"""Pull job-search numbers from the Asana "Job Search" board and write them into the AI site.
 
 applications = cards in Applied, Interview, Offer, Rejected
 interviews   = cards in Interview, Offer
@@ -13,7 +13,7 @@ if not TOKEN:
     sys.exit("ASANA_TOKEN secret is empty.")
 APPLIED = {"Applied", "Interview", "Offer", "Rejected"}
 INTERVIEW = {"Interview", "Offer"}
-ROOT = Path(__file__).resolve().parents[2] / "admin"
+ROOT = Path(__file__).resolve().parents[2] / "ai"
 
 
 def get(path, **params):
