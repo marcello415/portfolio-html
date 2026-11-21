@@ -161,6 +161,7 @@
 <div class="cs-card"><span class="mono">Earner version</span><strong>People who earned GapCash</strong><p>Their balance, the redeem tiers (for example, $20 off $50, $40 off $100, $120 off $300) and an in-store barcode.</p></div>
 <div class="cs-card"><span class="mono">Non-earner version</span><strong>Everyone else</strong><p>The same promotion and products, with no redeem block, so nobody saw an offer they couldn&rsquo;t use.</p></div>
 </div>
+<p>To show how it worked, I rebuilt a GapCash redeem email from the original Gap Factory images and footer. The balance, the redeem rows and the barcodes all come from the customer&rsquo;s record, so one email covers both versions. The working versions under See the work use test data.</p>
 </div>
 
 <h2>How I built it</h2>
@@ -180,6 +181,17 @@
   " time to use your $", @GC_TOTAL, " in GapCash!") ]%%</code></pre>
 <p class="cs-note">&ldquo;Marcello, it&rsquo;s time to use your $40 in GapCash!&rdquo; If the name field is empty, it reads &ldquo;It&rsquo;s time to use your $40 in GapCash!&rdquo;</p></div>
 
+<h2>The redeem rows</h2>
+<div><pre class="cs-code mono"><code>%%[ set @codeRows = LookupOrderedRows("GapCash_Codes", 0,
+  "SpendMin DESC", "EmailAddress", @email)
+for @i = 1 to RowCount(@codeRows) do
+  set @row = Row(@codeRows, @i) ]%%
+  Redeem $%%=Field(@row, "RedeemValue")=%% in GapCash
+  when you spend $%%=Field(@row, "SpendMin")=%%.
+  &lt;img src="%%=BarcodeURL(Field(@row, "Code"), "Code128", 275, 64)=%%"&gt;
+%%[ next @i ]%%</code></pre>
+<p class="cs-note">One row per redeem tier, highest spend first, each with its own barcode. A customer with no codes gets the non-earner version.</p></div>
+
 <h2>How I checked it</h2>
 <div><ol class="cs-list">
 <li>Built test records for each case: earner, non-earner, no first name and each balance tier</li>
@@ -198,7 +210,7 @@
 <h2>Skills used</h2>
 <div><ul class="chips"><li class="chip mono">Salesforce Marketing Cloud</li><li class="chip mono">AMPscript</li><li class="chip mono">Loyalty &amp; rewards</li><li class="chip mono">Segmented versions</li><li class="chip mono">Movable Ink</li><li class="chip mono">Litmus</li><li class="chip mono">Localization</li></ul></div>
 <h2>See the work</h2>
-      <div><ul class="links"><li><a href="https://marcello415.github.io/gap-html/20230413_GFSUS_Promo_PM_TM_CP.html" target="_blank" rel="noopener noreferrer">Promo email: Apr 13 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230416_GFSUS_Promo_PM_TM_CP.html" target="_blank" rel="noopener noreferrer">Promo email: Apr 16 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230610_GFSUS_Promo_Merch_AM_Earner_CP.html" target="_blank" rel="noopener noreferrer">Merch AM &middot; Earner: Jun 10 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230610_GFSUS_Promo_Merch_AM_NonEarner_CP.html" target="_blank" rel="noopener noreferrer">Merch AM &middot; Non-Earner: Jun 10 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230610_GFSUS_Promo_PM_Earner_CP.html" target="_blank" rel="noopener noreferrer">PM &middot; Earner: Jun 10 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230615_GFSUS_Promo_Merch_AM_TOP_CP.html" target="_blank" rel="noopener noreferrer">Merch AM &middot; Top: Jun 15 <span class="mono" aria-hidden="true">&#8599;</span></a></li></ul></div>
+      <div><ul class="links"><li><a href="https://marcello415.github.io/gap-html/gapcash/earner.html" target="_blank" rel="noopener noreferrer">GapCash redeem &middot; Earner (rebuilt) <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/gapcash/nonearner.html" target="_blank" rel="noopener noreferrer">GapCash redeem &middot; Non-Earner (rebuilt) <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230413_GFSUS_Promo_PM_TM_CP.html" target="_blank" rel="noopener noreferrer">Promo email: Apr 13 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230416_GFSUS_Promo_PM_TM_CP.html" target="_blank" rel="noopener noreferrer">Promo email: Apr 16 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230610_GFSUS_Promo_Merch_AM_Earner_CP.html" target="_blank" rel="noopener noreferrer">Merch AM &middot; Earner: Jun 10 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230610_GFSUS_Promo_Merch_AM_NonEarner_CP.html" target="_blank" rel="noopener noreferrer">Merch AM &middot; Non-Earner: Jun 10 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230610_GFSUS_Promo_PM_Earner_CP.html" target="_blank" rel="noopener noreferrer">PM &middot; Earner: Jun 10 <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://marcello415.github.io/gap-html/20230615_GFSUS_Promo_Merch_AM_TOP_CP.html" target="_blank" rel="noopener noreferrer">Merch AM &middot; Top: Jun 15 <span class="mono" aria-hidden="true">&#8599;</span></a></li></ul></div>
 </section>
 
 
