@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Content Fragments, Assets &amp; Launches in AEM | Marcello Miranda</title>
+<meta name="description" content="A working demo of how a launch page comes together in AEM from content fragments, assets and a launch, across five locales.">
+<link rel="icon" type="image/svg+xml" href="../../images/icon-web.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap">
+<script src="../../css/ga-load.js"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LQWW2RXWQE');</script>
+<style>
+:root{--ink:#161512;--paper:#FBFAF7;--line:#E4E1D9;--muted:#56534C;--accent:#B8381F;--ok:#1D6B3A;--warn:#9A5B00;--chrome:#1F1E1B}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Archivo',system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+.mono{font-family:'Space Mono',monospace}
+a{color:inherit}
+
+/* intro */
+.intro{max-width:1240px;margin:0 auto;padding:28px 24px 18px}
+.intro a.back{font:700 12px 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.intro h1{margin:14px 0 8px;font-size:34px;line-height:1.05;letter-spacing:-.02em}
+.intro p{margin:0;max-width:760px;color:var(--muted);font-size:16px;line-height:1.55}
+.intro .try{margin-top:12px;font-size:14px;color:var(--ink)}
+.intro .try b{font-weight:700}
+
+/* app shell */
+.app{max-width:1240px;margin:0 auto 48px;padding:0 24px}
+.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;background:var(--chrome);color:#F3F1EC;padding:12px 16px;border-radius:10px 10px 0 0}
+.bar .title{font-weight:700;font-size:14px;margin-right:auto}
+.bar .title span{font:400 12px 'Space Mono',monospace;color:#B9B5AC;margin-left:8px}
+.ctl{display:flex;align-items:center;gap:8px;font:700 11px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#C9C5BC}
+.ctl select{background:#2E2D29;border:1px solid #4A4842;color:#fff;border-radius:6px;padding:6px 8px;font:400 13px 'Archivo',sans-serif;text-transform:none;letter-spacing:0}
+.seg{display:inline-flex;border:1px solid #4A4842;border-radius:6px;overflow:hidden}
+.seg button{background:#2E2D29;border:0;padding:6px 10px;font:600 12px 'Archivo',sans-serif;color:#D9D5CC;cursor:pointer;text-transform:none;letter-spacing:0}
+.seg button[aria-pressed="true"]{background:#F3F1EC;color:var(--ink)}
+.launchinfo{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;background:#FFF4E5;border:1px solid #F0D2A8;border-top:0;padding:10px 16px;font-size:13px}
+.launchinfo b{font-weight:700}
+.launchinfo .grow{flex:1}
+.btn{border:1.5px solid var(--ink);background:#fff;border-radius:6px;padding:6px 12px;font-weight:700;font-size:13px;cursor:pointer}
+.btn.dark{background:var(--ink);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible,.seg button:focus-visible,select:focus-visible,.tabs button:focus-visible,.frag:focus-visible{outline:3px solid #2F6FEB;outline-offset:2px}
+
+.work{display:grid;grid-template-columns:400px minmax(0,1fr);border:1px solid var(--line);border-top:0;background:#fff;border-radius:0 0 10px 10px;min-height:640px}
+.panel{border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.tabs{display:flex;border-bottom:1px solid var(--line)}
+.tabs button{flex:1;background:none;border:0;border-bottom:3px solid transparent;padding:12px 8px;font:700 11px 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs .count{display:inline-block;min-width:18px;margin-left:4px;padding:1px 5px;border-radius:9px;background:var(--accent);color:#fff;font-size:10px}
+.tabs .count.zero{background:var(--ok)}
+.pane{padding:14px;overflow:auto;max-height:780px}
+.pane[hidden]{display:none}
+.hint{margin:0 0 12px;font-size:13px;color:var(--muted);line-height:1.5}
+
+.frag{border:1px solid var(--line);border-radius:8px;margin-bottom:12px;background:#fff}
+.frag.sel{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.frag h3{margin:0;padding:10px 12px;font-size:14px;display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line)}
+.frag h3 .model{font:400 11px 'Space Mono',monospace;color:var(--muted)}
+.frag .path{padding:8px 12px 0;font:400 11px 'Space Mono',monospace;color:var(--muted);word-break:break-all}
+.fields{margin:0;padding:6px 12px 12px}
+.f{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:13px}
+.f:last-child{border-bottom:0}
+.f dt{font:700 10px 'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.f dd{margin:0;line-height:1.4;word-break:break-word}
+.f dd.link{font-family:'Space Mono',monospace;font-size:12px}
+.f dd.empty{color:#B42318;font-style:italic}
+.chg{display:inline-block;margin-left:6px;padding:0 6px;border-radius:4px;background:#FFE7C2;color:#7A4300;font:700 10px 'Space Mono',monospace;letter-spacing:.04em;vertical-align:1px}
+
+.asset{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;border:1px solid var(--line);border-radius:8px;padding:10px;margin-bottom:12px}
+.asset .thumb{width:96px;height:64px;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.asset .thumb svg{width:100%;height:100%;display:block}
+.asset b{font-size:13px}
+.asset .p{font:400 11px 'Space Mono',monospace;color:var(--muted);word-break:break-all;margin:2px 0 6px}
+.asset ul{margin:0;padding:0;list-style:none;font-size:12px;line-height:1.6}
+.asset .used{margin-top:4px;font-size:12px;color:var(--muted)}
+
+.qa-sum{display:flex;gap:10px;align-items:center;margin-bottom:12px;font-size:14px;font-weight:700}
+.qa-item{border:1px solid var(--line);border-left:4px solid #B42318;border-radius:6px;padding:10px 12px;margin-bottom:10px;font-size:13px;line-height:1.45}
+.qa-item.ok{border-left-color:var(--ok)}
+.qa-item .where{font:700 10px 'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.qa-item .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;margin-top:4px}
+.qa-grid{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+.qa-grid th,.qa-grid td{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left}
+.qa-grid th{font:700 10px 'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pass{color:var(--ok);font-weight:700}.fail{color:#B42318;font-weight:700}
+
+/* preview */
+.stage{background:#ECEAE4;padding:18px;min-width:0}
+.vp{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font:700 11px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.vp .url{font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:14px;padding:4px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70%}
+.site{background:#fff;border-radius:8px;overflow:hidden;font-family:-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif;color:#1d1d1f}
+.site .nav{display:flex;gap:22px;align-items:center;justify-content:center;background:#F5F5F2;padding:12px 16px;font-size:13px;flex-wrap:wrap}
+.site .nav .logo{font-weight:800;letter-spacing:.12em;font-size:13px;margin-right:12px}
+.site .nav .badge{font-size:10px;font-weight:700;color:#B8381F;margin-left:4px;text-transform:uppercase}
+.site .hero{text-align:center;padding:36px 20px 0}
+.site .eyebrow{color:#B8381F;font-weight:700;font-size:15px;min-height:20px}
+.site h2.t{margin:4px 0 6px;font-size:46px;letter-spacing:-.02em;line-height:1.05}
+.site .sub{font-size:21px;margin:0 auto;max-width:560px;line-height:1.3}
+.site .detail{font-size:15px;color:#4a4a4f;margin-top:8px}
+.site sup a{text-decoration:none;color:inherit}
+.site .ctas{display:flex;gap:16px;justify-content:center;margin:16px 0 0;flex-wrap:wrap}
+.site .ctas a{font-size:16px;text-decoration:none;padding:9px 18px;border-radius:980px}
+.site .ctas a.primary{background:#1d1d1f;color:#fff}
+.site .ctas a.secondary{color:#1d1d1f;border:1px solid #1d1d1f}
+.site .heroimg{margin:22px auto 0;max-width:620px}
+.site .heroimg svg{display:block;width:100%;height:auto}
+.site .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;background:#F5F5F2}
+.site .tile{background:#fff;border-radius:8px;padding:22px 18px 0;text-align:center;overflow:hidden}
+.site .tile h4{margin:0 0 6px;font-size:22px}
+.site .tile p{margin:0 0 10px;font-size:15px;color:#4a4a4f}
+.site .tile a{font-size:15px;color:#0B5CAD;text-decoration:none}
+.site .tile a:hover{text-decoration:underline}
+.site .tile svg{display:block;width:100%;height:auto;margin-top:14px}
+.site .notes{padding:16px 22px 22px;font-size:12px;color:#6e6e73;line-height:1.5}
+.site .notes ol{margin:0;padding-left:18px}
+.site .notes li.missing{color:#B42318;font-style:italic}
+
+/* author overlays */
+.author [data-frag]{position:relative;outline:1.5px dashed rgba(47,111,235,.55);outline-offset:3px;cursor:pointer}
+.author [data-frag]:hover,.author [data-frag].sel{outline:2px solid #2F6FEB}
+.author [data-frag]::before{content:attr(data-label);position:absolute;top:6px;left:6px;z-index:2;background:#2F6FEB;color:#fff;font:700 9px 'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:3px;opacity:0;transition:opacity .12s;pointer-events:none;white-space:nowrap}
+.author [data-frag]:hover::before,.author [data-frag].sel::before{opacity:1}
+.author .changed{box-shadow:inset 3px 0 0 #E0A13A}
+
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:9}
+.toast.on{opacity:1}
+
+@media (max-width:900px){
+  .work{grid-template-columns:1fr}
+  .panel{border-right:0;border-top:1px solid var(--line);order:2}
+  .stage{order:1}
+  .pane{max-height:420px}
+  .site h2.t{font-size:34px}
+  .site .sub{font-size:18px}
+}
+@media (max-width:560px){
+  .intro h1{font-size:27px}
+  .app{padding:0 10px}
+  .stage{padding:10px}
+  .site .tiles{grid-template-columns:1fr}
+  .site .nav{gap:12px}
+}
+</style>
+</head>
+<body>
+
+<header class="intro">
+  <a class="back" href="../work/aem-launches.html">&larr; AEM Launches case study</a>
+  <h1>Content fragments, assets and a launch, working together</h1>
+  <p>A working demo of how I put launch pages together in AEM: copy and links live in content fragments, images come from the asset library, and the next release is staged in a launch until it goes live. Northwind Audio is a made-up brand. The steps are the ones I followed.</p>
+  <p class="try"><b>Try it:</b> switch locales, turn on <b>Launch preview</b>, click any part of the page to see the fragment behind it, then open <b>QA</b> and fix what it finds before you promote the launch.</p>
+</header>
+
+<main class="app" id="app">
+  <div class="bar" role="toolbar" aria-label="Demo controls">
+    <div class="title">Northwind Audio &middot; Arc Pro<span>/content/northwind</span></div>
+    <label class="ctl">Locale
+      <select id="locale" aria-label="Locale">
+        <option value="en-US">en-US &middot; United States</option>
+        <option value="en-GB">en-GB &middot; United Kingdom</option>
+        <option value="fr-FR">fr-FR &middot; France</option>
+        <option value="de-DE">de-DE &middot; Germany</option>
+        <option value="ja-JP">ja-JP &middot; Japan</option>
+      </select>
+    </label>
+    <div class="ctl"><span id="lblVersion">Version</span>
+      <div class="seg" role="group" aria-labelledby="lblVersion">
+        <button type="button" id="vProd" aria-pressed="true">Production</button>
+        <button type="button" id="vLaunch" aria-pressed="false">Launch preview</button>
+      </div>
+    </div>
+    <div class="ctl"><span id="lblView">View</span>
+      <div class="seg" role="group" aria-labelledby="lblView">
+        <button type="button" id="mAuthor" aria-pressed="true">Author</button>
+        <button type="button" id="mPub" aria-pressed="false">Published</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="launchinfo" id="launchinfo">
+    <span>Launch <b id="launchName">Arc Pro 2</b> &middot; goes live <b>Sep 9, 9:00 AM local</b> in all five locales</span>
+    <span class="grow" id="launchState"></span>
+    <button type="button" class="btn dark" id="promote">Promote launch</button>
+    <button type="button" class="btn" id="reset">Reset demo</button>
+  </div>
+
+  <div class="work">
+    <section class="panel" aria-label="Authoring panel">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="t-frags" aria-controls="p-frags" aria-selected="true">Fragments</button>
+        <button type="button" role="tab" id="t-assets" aria-controls="p-assets" aria-selected="false">Assets</button>
+        <button type="button" role="tab" id="t-qa" aria-controls="p-qa" aria-selected="false">QA <span class="count" id="qaCount">0</span></button>
+      </div>
+      <div class="pane" role="tabpanel" id="p-frags" aria-labelledby="t-frags">
+        <p class="hint">Each block of copy on the page comes from a fragment. Fields marked <span class="chg">LAUNCH</span> differ in the launch.</p>
+        <div id="fragList"></div>
+      </div>
+      <div class="pane" role="tabpanel" id="p-assets" aria-labelledby="t-assets" hidden>
+        <p class="hint">Images live once in the asset library. Fragments point to them, and the page loads the rendition that fits the screen.</p>
+        <div id="assetList"></div>
+      </div>
+      <div class="pane" role="tabpanel" id="p-qa" aria-labelledby="t-qa" hidden>
+        <p class="hint">The checks I ran in UAT before a launch went live, across every locale: required copy filled in, links pointing to their own locale, footnotes matched to their references, and assets in place.</p>
+        <div id="qaList"></div>
+      </div>
+    </section>
+
+    <section class="stage" aria-label="Page preview">
+      <div class="vp"><span id="vpLabel">Author &middot; Production</span><span class="url" id="url"></span></div>
+      <div class="site author" id="site"></div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var LOCALES = {
+    'en-US': {prefix:'/us', lang:'en'},
+    'en-GB': {prefix:'/uk', lang:'en'},
+    'fr-FR': {prefix:'/fr', lang:'fr'},
+    'de-DE': {prefix:'/de', lang:'de'},
+    'ja-JP': {prefix:'/jp', lang:'ja'}
+  };
+
+  /* copy by language; en-GB shares en copy with its own links */
+  var COPY = {
+    en: {
+      nav:['Headphones','Speakers','Support'], navNew:'New',
+      hero:{eyebrow:'', title:'Arc Pro', sub:'Quiet when you want it. Clear when you need it.', detail:'Up to 40 hours of listening.', learn:'Learn more', buy:'Buy'},
+      heroL:{eyebrow:'New', title:'Arc Pro 2', sub:'Twice the quiet. Same easy fit.', detail:'Up to 50 hours of listening.'},
+      case:{title:'Carry case', body:'Folds flat and fits in any bag.', cta:'Shop accessories'},
+      trade:{title:'Trade in your old pair', body:'Get credit toward Arc Pro.', cta:'See how it works'},
+      tradeL:{body:'Get credit toward Arc Pro 2.'},
+      fn1:'Battery life depends on use and settings. Tested with noise control on.',
+      fn2:'Trade-in credit depends on the condition of your device. Not available in all stores.'
+    },
+    fr: {
+      nav:['Casques','Enceintes','Assistance'], navNew:'Nouveau',
+      hero:{eyebrow:'', title:'Arc Pro', sub:'Le silence quand vous le voulez. La clarté quand il le faut.', detail:'Jusqu’à 40 heures d’écoute.', learn:'En savoir plus', buy:'Acheter'},
+      heroL:{eyebrow:'Nouveau', title:'Arc Pro 2', sub:'Deux fois plus de silence. Le même confort.', detail:'Jusqu’à 50 heures d’écoute.'},
+      case:{title:'Étui de transport', body:'Se plie à plat et se glisse dans tous les sacs.', cta:'Voir les accessoires'},
+      trade:{title:'Faites reprendre votre ancien casque', body:'Obtenez un crédit pour Arc Pro.', cta:'Découvrir le fonctionnement'},
+      tradeL:{body:'Obtenez un crédit pour Arc Pro 2.'},
+      fn1:'L’autonomie dépend de l’utilisation et des réglages. Testé avec la réduction de bruit activée.',
+      fn2:'Le crédit de reprise dépend de l’état de l’appareil. Offre non disponible dans tous les magasins.'
+    },
+    de: {
+      nav:['Kopfhörer','Lautsprecher','Support'], navNew:'Neu',
+      hero:{eyebrow:'', title:'Arc Pro', sub:'Ruhe, wenn du sie willst. Klarheit, wenn du sie brauchst.', detail:'Bis zu 40 Stunden Musikgenuss.', learn:'Mehr erfahren', buy:'Kaufen'},
+      heroL:{eyebrow:'Neu', title:'Arc Pro 2', sub:'Doppelt so leise. Genauso bequem.', detail:'Bis zu 50 Stunden Musikgenuss.'},
+      case:{title:'Transportetui', body:'Lässt sich flach falten und passt in jede Tasche.', cta:'Zubehör ansehen'},
+      trade:{title:'Altes Modell eintauschen', body:'Erhalte eine Gutschrift für Arc Pro.', cta:'So funktioniert’s'},
+      tradeL:{body:'Erhalte eine Gutschrift für Arc Pro 2.'},
+      fn1:'Die Akkulaufzeit hängt von Nutzung und Einstellungen ab. Getestet mit aktiver Geräuschunterdrückung.',
+      fn2:'Die Gutschrift hängt vom Zustand des Geräts ab. Nicht in allen Stores verfügbar.'
+    },
+    ja: {
+      nav:['ヘッドホン','スピーカー','サポート'], navNew:'New',
+      hero:{eyebrow:'', title:'Arc Pro', sub:'静けさも、クリアな音も、思いのままに。', detail:'最大40時間の再生。', learn:'さらに詳しく', buy:'購入'},
+      heroL:{eyebrow:'New', title:'Arc Pro 2', sub:'静けさは2倍に。着け心地はそのまま。', detail:'最大50時間の再生。'},
+      case:{title:'キャリングケース', body:'フラットに折りたためて、どんなバッグにも。', cta:'アクセサリを見る'},
+      trade:{title:'下取りプログラム', body:'Arc Proの購入に使えるクレジットがもらえます。', cta:'仕組みを見る'},
+      tradeL:{body:'Arc Pro 2の購入に使えるクレジットがもらえます。'},
+      fn1:'バッテリー駆動時間は使用状況や設定によって異なります。',
+      fn2:'下取り額は製品の状態によって異なります。一部の店舗ではご利用いただけません。'
+    }
+  };
+
+  var ASSETS = {
+    'hero-sand':     {name:'arc-pro_hero_sand.png', title:'Arc Pro, Sand', w:3840, h:2160},
+    'hero-midnight': {name:'arc-pro-2_hero_midnight.png', title:'Arc Pro 2, Midnight', w:3840, h:2160},
+    'case':          {name:'carry-case_tile.png', title:'Carry case', w:1920, h:1080},
+    'trade':         {name:'trade-in_tile.png', title:'Trade-in', w:1920, h:1080}
+  };
+
+  /* build the fragment store: store[version][locale][fragmentId] = fields */
+  function build(){
+    var s = {production:{}, launch:{}};
+    Object.keys(LOCALES).forEach(function(loc){
+      var p = LOCALES[loc].prefix, c = COPY[LOCALES[loc].lang];
+      function base(){
+        return {
+          nav:  {items:c.nav.join(' | '), productLabel:'Arc Pro', badge:'', productLink:p+'/arc-pro/'},
+          hero: {eyebrow:c.hero.eyebrow, title:c.hero.title, subtitle:c.hero.sub, detail:c.hero.detail, footnoteRef:'1',
+                 primaryLabel:c.hero.learn, primaryLink:p+'/arc-pro/', secondaryLabel:c.hero.buy, secondaryLink:p+'/shop/arc-pro/', asset:'hero-sand'},
+          case: {title:c.case.title, body:c.case.body, ctaLabel:c.case.cta, ctaLink:p+'/shop/accessories/', asset:'case'},
+          trade:{title:c.trade.title, body:c.trade.body, footnoteRef:'2', ctaLabel:c.trade.cta, ctaLink:p+'/trade-in/', asset:'trade'},
+          notes:{footnote1:c.fn1, footnote2:c.fn2}
+        };
+      }
+      s.production[loc] = base();
+      var l = base();
+      l.nav.productLabel = 'Arc Pro 2'; l.nav.badge = c.navNew;
+      l.hero.eyebrow = c.heroL.eyebrow; l.hero.title = c.heroL.title; l.hero.subtitle = c.heroL.sub; l.hero.detail = c.heroL.detail;
+      l.hero.asset = 'hero-midnight';
+      l.trade.body = c.tradeL.body;
+      s.launch[loc] = l;
+    });
+    /* two real-world misses for QA to catch */
+    s.launch['de-DE'].trade.ctaLink = '/us/trade-in/';
+    s.launch['ja-JP'].notes.footnote2 = '';
+    return s;
+  }
+
+  var FRAGS = [
+    {id:'nav',   label:'Nav link',        model:'Navigation Link', file:'global-nav'},
+    {id:'hero',  label:'Product hero',    model:'Product Hero',    file:'arc-pro/hero'},
+    {id:'case',  label:'Promo tile',      model:'Promo Tile',      file:'arc-pro/tile-carry-case'},
+    {id:'trade', label:'Promo tile',      model:'Promo Tile',      file:'arc-pro/tile-trade-in'},
+    {id:'notes', label:'Legal footnotes', model:'Legal Footnotes', file:'arc-pro/footnotes'}
+  ];
+  var FIELD_NAMES = {items:'Items', productLabel:'Product', badge:'Badge', productLink:'Link', eyebrow:'Eyebrow', title:'Title', subtitle:'Subtitle',
+    detail:'Detail', footnoteRef:'Footnote', primaryLabel:'CTA 1', primaryLink:'CTA 1 link', secondaryLabel:'CTA 2', secondaryLink:'CTA 2 link',
+    asset:'Asset', body:'Body', ctaLabel:'CTA', ctaLink:'CTA link', footnote1:'Note 1', footnote2:'Note 2'};
+  var OPTIONAL = {badge:1, eyebrow:1};
+
+  var state, store;
+  function reset(){
+    store = build();
+    state = {locale:'en-US', version:'production', author:true, tab:'frags', sel:null, promoted:false};
+    document.getElementById('locale').value = 'en-US';
+  }
+
+  function esc(t){return String(t).replace(/[&<>"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch];});}
+  function cur(){return store[state.version][state.locale];}
+  function changed(fid, key){
+    if (state.promoted) return false;
+    return store.launch[state.locale][fid][key] !== store.production[state.locale][fid][key];
+  }
+  function fragPath(loc, f){return '/content/dam/northwind/fragments/' + loc + '/' + f.file;}
+  function assetPath(id){return '/content/dam/northwind/arc-pro/' + ASSETS[id].name;}
+
+  /* artwork, drawn inline so the demo has no outside images */
+  function art(id){
+    if (id === 'hero-sand' || id === 'hero-midnight'){
+      var m = id === 'hero-midnight';
+      var bg = m ? '#E6EAF1' : '#F3EEE6', band = m ? '#1C2230' : '#B39C78', cup = m ? '#2B3445' : '#D8C6A6', pad = m ? '#11151F' : '#8C7656';
+      return '<svg viewBox="0 0 640 300" role="img" aria-label="' + esc(ASSETS[id].title) + '"><rect width="640" height="300" fill="' + bg + '"/>' +
+        '<path d="M210 210 C210 60 430 60 430 210" fill="none" stroke="' + band + '" stroke-width="22" stroke-linecap="round"/>' +
+        '<rect x="176" y="168" width="72" height="104" rx="34" fill="' + cup + '"/><rect x="230" y="182" width="22" height="76" rx="10" fill="' + pad + '"/>' +
+        '<rect x="392" y="168" width="72" height="104" rx="34" fill="' + cup + '"/><rect x="388" y="182" width="22" height="76" rx="10" fill="' + pad + '"/></svg>';
+    }
+    if (id === 'case'){
+      return '<svg viewBox="0 0 320 150" role="img" aria-label="Carry case"><rect width="320" height="150" fill="#EFEDE7"/><rect x="90" y="30" width="140" height="100" rx="46" fill="#3A3A3C"/><path d="M104 80 H216" stroke="#8E8E93" stroke-width="3" stroke-dasharray="6 5"/><rect x="200" y="72" width="16" height="16" rx="4" fill="#8E8E93"/></svg>';
+    }
+    return '<svg viewBox="0 0 320 150" role="img" aria-label="Trade-in"><rect width="320" height="150" fill="#EAF0EA"/><path d="M70 110 C70 50 140 50 140 110" fill="none" stroke="#9AA39A" stroke-width="9" stroke-linecap="round"/><rect x="58" y="94" width="26" height="40" rx="12" fill="#B8C1B8"/><rect x="126" y="94" width="26" height="40" rx="12" fill="#B8C1B8"/><path d="M160 92 H196 M186 82 L198 92 L186 102" fill="none" stroke="#1D6B3A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M210 110 C210 50 280 50 280 110" fill="none" stroke="#2B3445" stroke-width="9" stroke-linecap="round"/><rect x="198" y="94" width="26" height="40" rx="12" fill="#2B3445"/><rect x="266" y="94" width="26" height="40" rx="12" fill="#2B3445"/></svg>';
+  }
+
+  function renderSite(){
+    var d = cur(), site = document.getElementById('site'), lp = LOCALES[state.locale].prefix;
+    site.className = 'site' + (state.author ? ' author' : '');
+    site.setAttribute('lang', state.locale);
+    function attrs(fid){
+      var f = FRAGS.filter(function(x){return x.id === fid;})[0];
+      var anyChange = state.version === 'launch' && Object.keys(d[fid]).some(function(k){return changed(fid, k);});
+      return ' data-frag="' + fid + '" data-label="' + esc(f.label + ' · ' + f.model) + '"' + (state.sel === fid ? ' class="sel' + (state.author && anyChange ? ' changed' : '') + '"' : (state.author && anyChange ? ' class="changed"' : '')) + ' tabindex="' + (state.author ? '0' : '-1') + '"';
+    }
+    function sup(n){return n ? '<sup><a href="#fn' + n + '">' + n + '</a></sup>' : '';}
+    function link(href, label, cls){return '<a href="' + esc(href) + '"' + (cls ? ' class="' + cls + '"' : '') + ' onclick="return false">' + esc(label) + '</a>';}
+    var nav = d.nav.items.split(' | ');
+    var html = '';
+    html += '<div class="nav"' + attrs('nav') + '><span class="logo">NORTHWIND</span>' + nav.map(function(n){return '<span>' + esc(n) + '</span>';}).join('') +
+            '<a href="' + esc(d.nav.productLink) + '" onclick="return false" style="text-decoration:none">' + esc(d.nav.productLabel) + (d.nav.badge ? '<span class="badge">' + esc(d.nav.badge) + '</span>' : '') + '</a></div>';
+    html += '<div class="hero"' + attrs('hero') + '><div class="eyebrow">' + esc(d.hero.eyebrow) + '</div><h2 class="t">' + esc(d.hero.title) + '</h2>' +
+            '<p class="sub">' + esc(d.hero.subtitle) + '</p><div class="detail">' + esc(d.hero.detail) + sup(d.hero.footnoteRef) + '</div>' +
+            '<div class="ctas">' + link(d.hero.primaryLink, d.hero.primaryLabel, 'secondary') + link(d.hero.secondaryLink, d.hero.secondaryLabel, 'primary') + '</div>' +
+            '<div class="heroimg">' + art(d.hero.asset) + '</div></div>';
+    html += '<div class="tiles">';
+    ['case','trade'].forEach(function(fid){
+      var t = d[fid];
+      html += '<div class="tile"' + attrs(fid) + '><h4>' + esc(t.title) + '</h4><p>' + esc(t.body) + sup(t.footnoteRef) + '</p>' + link(t.ctaLink, t.ctaLabel + ' ›') + art(t.asset) + '</div>';
+    });
+    html += '</div>';
+    html += '<div class="notes"' + attrs('notes') + '><ol>' +
+            '<li id="fn1">' + esc(d.notes.footnote1) + '</li>' +
+            (d.notes.footnote2 ? '<li id="fn2">' + esc(d.notes.footnote2) + '</li>' : '<li id="fn2" class="missing">' + (state.author ? 'Footnote 2 is empty in this locale' : '') + '</li>') +
+            '</ol></div>';
+    site.innerHTML = html;
+    document.getElementById('url').textContent = 'northwind.example' + lp + '/arc-pro/';
+    document.getElementById('vpLabel').textContent = (state.author ? 'Author' : 'Published') + ' · ' + (state.version === 'launch' ? 'Launch preview' : 'Production');
+  }
+
+  function renderFrags(){
+    var d = cur(), out = '';
+    FRAGS.forEach(function(f){
+      var fields = d[f.id];
+      out += '<article class="frag' + (state.sel === f.id ? ' sel' : '') + '" id="frag-' + f.id + '" tabindex="-1"><h3>' + esc(f.label) + ' <span class="model">' + esc(f.model) + '</span></h3>' +
+             '<div class="path">' + esc(fragPath(state.locale, f)) + '</div><dl class="fields">';
+      Object.keys(fields).forEach(function(k){
+        var v = fields[k], isLink = /Link$/.test(k), isAsset = k === 'asset';
+        var shown = isAsset ? assetPath(v) : v;
+        var cls = isLink || isAsset ? 'link' : '';
+        if (v === '' && !OPTIONAL[k]) cls += ' empty';
+        out += '<div class="f"><dt>' + esc(FIELD_NAMES[k] || k) + '</dt><dd class="' + cls + '">' + (v === '' ? (OPTIONAL[k] ? '—' : 'Empty') : esc(shown)) +
+               (state.version === 'launch' && changed(f.id, k) ? '<span class="chg">LAUNCH</span>' : '') + '</dd></div>';
+      });
+      out += '</dl></article>';
+    });
+    document.getElementById('fragList').innerHTML = out;
+  }
+
+  function renderAssets(){
+    var out = '';
+    Object.keys(ASSETS).forEach(function(id){
+      var a = ASSETS[id], users = [];
+      ['production','launch'].forEach(function(v){
+        FRAGS.forEach(function(f){
+          var fld = store[v][state.locale][f.id];
+          if (fld.asset === id){ var tag = f.label + (v === 'launch' && !state.promoted ? ' (launch)' : ''); if (users.indexOf(tag) < 0) users.push(tag); }
+        });
+      });
+      out += '<div class="asset"><div class="thumb">' + art(id) + '</div><div><b>' + esc(a.title) + '</b><div class="p">' + esc(assetPath(id)) + '</div>' +
+             '<ul><li>original &middot; ' + a.w + '&times;' + a.h + '</li><li>cq5dam.web.1280.1280 &middot; page, desktop</li><li>cq5dam.web.640.640 &middot; page, mobile</li><li>cq5dam.thumbnail.319.319 &middot; author view</li></ul>' +
+             '<div class="used">' + (users.length ? 'Used by: ' + esc(users.join(', ')) : 'Not used on this page yet') + '</div></div></div>';
+    });
+    document.getElementById('assetList').innerHTML = out;
+  }
+
+  /* QA: run every check across every locale and both versions */
+  function runQA(){
+    var issues = [], rows = [];
+    var versions = state.promoted ? ['production'] : ['production','launch'];
+    Object.keys(LOCALES).forEach(function(loc){
+      var p = LOCALES[loc].prefix, ok = {};
+      versions.forEach(function(v){
+        var d = store[v][loc], bad = 0;
+        FRAGS.forEach(function(f){
+          Object.keys(d[f.id]).forEach(function(k){
+            var val = d[f.id][k];
+            if (val === '' && !OPTIONAL[k]){ bad++; issues.push({loc:loc, v:v, f:f, k:k, type:'empty', msg:FIELD_NAMES[k] + ' is empty in ' + f.label.toLowerCase() + '.'}); }
+            if (/Link$/.test(k) && val.indexOf(p + '/') !== 0){ bad++; issues.push({loc:loc, v:v, f:f, k:k, type:'link', msg:FIELD_NAMES[k] + ' points to ' + val + ', not to ' + p + '/.'}); }
+            if (k === 'asset' && !ASSETS[val]){ bad++; issues.push({loc:loc, v:v, f:f, k:k, type:'asset', msg:'Asset missing.'}); }
+          });
+        });
+        ['hero','trade'].forEach(function(fid){
+          var n = d[fid].footnoteRef;
+          if (n && !d.notes['footnote' + n]){ bad++; if (!issues.some(function(i){return i.loc===loc && i.v===v && i.k==='footnote'+n;})) issues.push({loc:loc, v:v, f:FRAGS[4], k:'footnote' + n, type:'empty', msg:'Footnote ' + n + ' is referenced on the page but has no text.'}); }
+        });
+        ok[v] = bad === 0;
+      });
+      rows.push({loc:loc, ok:ok});
+    });
+    return {issues:issues, rows:rows, versions:versions};
+  }
+
+  function fix(i){
+    var p = LOCALES[i.loc].prefix, c = COPY[LOCALES[i.loc].lang];
+    var d = store[i.v][i.loc][i.f.id];
+    if (i.type === 'link') d[i.k] = p + d[i.k].replace(/^\/[a-z]{2}/, '');
+    if (i.type === 'empty' && i.k === 'footnote2') d[i.k] = c.fn2;
+    if (i.type === 'empty' && i.k === 'footnote1') d[i.k] = c.fn1;
+    toast('Fixed in ' + i.loc + (i.v === 'launch' ? ' launch' : '') + '. Re-checked all locales.');
+    render();
+  }
+
+  function renderQA(){
+    var r = runQA(), out = '';
+    var n = r.issues.length, badge = document.getElementById('qaCount');
+    badge.textContent = n; badge.className = 'count' + (n ? '' : ' zero');
+    out += '<div class="qa-sum">' + (n ? '<span class="fail">' + n + ' issue' + (n > 1 ? 's' : '') + ' found</span>' : '<span class="pass">All checks pass</span>') + '</div>';
+    r.issues.forEach(function(i, idx){
+      out += '<div class="qa-item"><div class="where">' + esc(i.loc) + ' &middot; ' + (i.v === 'launch' ? 'Launch' : 'Production') + ' &middot; ' + esc(i.f.label) + '</div>' +
+             '<div class="row"><span>' + esc(i.msg) + '</span><button type="button" class="btn" data-fix="' + idx + '">Fix</button></div></div>';
+    });
+    out += '<table class="qa-grid"><thead><tr><th scope="col">Locale</th>' + r.versions.map(function(v){return '<th scope="col">' + (v === 'launch' ? 'Launch' : 'Production') + '</th>';}).join('') + '</tr></thead><tbody>';
+    r.rows.forEach(function(row){
+      out += '<tr><td>' + row.loc + '</td>' + r.versions.map(function(v){return '<td class="' + (row.ok[v] ? 'pass' : 'fail') + '">' + (row.ok[v] ? 'Pass' : 'Check') + '</td>';}).join('') + '</tr>';
+    });
+    out += '</tbody></table>';
+    var list = document.getElementById('qaList');
+    list.innerHTML = out;
+    Array.prototype.forEach.call(list.querySelectorAll('[data-fix]'), function(b){
+      b.addEventListener('click', function(){ fix(r.issues[+b.getAttribute('data-fix')]); });
+    });
+    return n;
+  }
+
+  function renderLaunchBar(n){
+    var bar = document.getElementById('launchState'), btn = document.getElementById('promote');
+    if (state.promoted){
+      bar.textContent = 'Promoted. The launch copy is now production in all five locales.';
+      btn.disabled = true; document.getElementById('vLaunch').disabled = true;
+    } else {
+      bar.textContent = n ? 'Fix ' + n + ' QA issue' + (n > 1 ? 's' : '') + ' before promoting.' : 'QA passes in every locale. Ready to promote.';
+      btn.disabled = n > 0; document.getElementById('vLaunch').disabled = false;
+    }
+  }
+
+  function render(){
+    document.getElementById('vProd').setAttribute('aria-pressed', state.version === 'production');
+    document.getElementById('vLaunch').setAttribute('aria-pressed', state.version === 'launch');
+    document.getElementById('mAuthor').setAttribute('aria-pressed', state.author);
+    document.getElementById('mPub').setAttribute('aria-pressed', !state.author);
+    renderSite(); renderFrags(); renderAssets();
+    var n = renderQA(); renderLaunchBar(n);
+    ['frags','assets','qa'].forEach(function(t){
+      document.getElementById('t-' + t).setAttribute('aria-selected', state.tab === t);
+      document.getElementById('p-' + t).hidden = state.tab !== t;
+    });
+  }
+
+  function toast(msg){
+    var t = document.getElementById('toast'); t.textContent = msg; t.classList.add('on');
+    clearTimeout(toast.h); toast.h = setTimeout(function(){ t.classList.remove('on'); }, 2400);
+  }
+
+  function select(fid){
+    state.sel = fid; state.tab = 'frags'; render();
+    var el = document.getElementById('frag-' + fid);
+    if (el){ el.scrollIntoView({block:'nearest', behavior:'smooth'}); }
+  }
+
+  document.getElementById('locale').addEventListener('change', function(e){ state.locale = e.target.value; render(); });
+  document.getElementById('vProd').addEventListener('click', function(){ state.version = 'production'; render(); });
+  document.getElementById('vLaunch').addEventListener('click', function(){ state.version = 'launch'; render(); });
+  document.getElementById('mAuthor').addEventListener('click', function(){ state.author = true; render(); });
+  document.getElementById('mPub').addEventListener('click', function(){ state.author = false; state.sel = null; render(); });
+  ['frags','assets','qa'].forEach(function(t){
+    document.getElementById('t-' + t).addEventListener('click', function(){ state.tab = t; render(); });
+  });
+  document.getElementById('site').addEventListener('click', function(e){
+    if (!state.author) return;
+    var el = e.target.closest('[data-frag]'); if (el) select(el.getAttribute('data-frag'));
+  });
+  document.getElementById('site').addEventListener('keydown', function(e){
+    if (!state.author || (e.key !== 'Enter' && e.key !== ' ')) return;
+    var el = e.target.closest('[data-frag]'); if (el){ e.preventDefault(); select(el.getAttribute('data-frag')); }
+  });
+  document.getElementById('promote').addEventListener('click', function(){
+    if (runQA().issues.length) return;
+    store.production = JSON.parse(JSON.stringify(store.launch));
+    state.promoted = true; state.version = 'production';
+    toast('Launch promoted to production in all five locales.');
+    render();
+  });
+  document.getElementById('reset').addEventListener('click', function(){ reset(); render(); document.getElementById('p-frags').scrollTop = 0; toast('Demo reset.'); });
+
+  reset(); render();
+})();
+</script>
+</body>
+</html>

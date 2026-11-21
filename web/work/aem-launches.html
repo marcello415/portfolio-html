@@ -160,6 +160,19 @@
 <div class="cs-card"><span class="mono">Components</span><strong>The building blocks of a page</strong><p>Page sections were placed and configured per page, then filled with localized copy and assets.</p></div>
 </div>
 </div>
+<h2>See it working</h2>
+<div>
+<p>Apple&rsquo;s setup stays private, so I built a working demo with a made-up brand. It shows a launch page made from content fragments and assets in five locales, a launch that stages the next release, and the UAT checks I ran before it went live.</p>
+<pre class="cs-code mono"><code>/content/dam/northwind/fragments/fr-FR/arc-pro/hero
+{
+  "title": "Arc Pro 2",
+  "subtitle": "Deux fois plus de silence. Le même confort.",
+  "primaryLabel": "En savoir plus",
+  "primaryLink": "/fr/arc-pro/",
+  "asset": "/content/dam/northwind/arc-pro/arc-pro-2_hero_midnight.png"
+}</code></pre>
+<p class="cs-note">One fragment per locale. The copy changes by language, and every link has to start with that locale&rsquo;s path. A French page linking to a /us/ page is the kind of miss UAT catches.</p>
+</div>
 <h2>How I built it</h2>
 <div><ol class="cs-list"><li>Set up the page structure from the launch plan: which components, in which order, for which locales</li><li>Placed assets from the asset library and checked each locale pointed to its own images</li><li>Entered localized copy for 100+ locales and matched each one to its translation</li><li>Worked with developers when a fragment model or component didn&rsquo;t fit the content, and suggested changes</li><li>Wrote SOPs for the steps new team members found hardest</li></ol></div>
 <h2>How I checked it</h2>
@@ -171,7 +184,7 @@
       <h2>Skills used</h2>
       <div><ul class="chips"><li class="chip mono">Adobe Experience Manager</li><li class="chip mono">Content fragments</li><li class="chip mono">Components</li><li class="chip mono">UAT</li><li class="chip mono">Release management</li><li class="chip mono">SOPs</li></ul></div>
       <h2>See the work</h2>
-      <div><ul class="links"><li><a href="https://www.apple.com/mac/" target="_blank" rel="noopener noreferrer">apple.com/mac <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://www.apple.com/ipad/" target="_blank" rel="noopener noreferrer">apple.com/ipad <span class="mono" aria-hidden="true">&#8599;</span></a></li></ul></div>
+      <div><ul class="links"><li><a href="https://marcello415.github.io/portfolio-html/web/demos/content-fragments.html" target="_blank" rel="noopener noreferrer">Demo: content fragments, assets &amp; a launch <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://www.apple.com/mac/" target="_blank" rel="noopener noreferrer">apple.com/mac <span class="mono" aria-hidden="true">&#8599;</span></a></li><li><a href="https://www.apple.com/ipad/" target="_blank" rel="noopener noreferrer">apple.com/ipad <span class="mono" aria-hidden="true">&#8599;</span></a></li></ul></div>
     </section>
 
     <nav class="cs-next" aria-label="More work">
