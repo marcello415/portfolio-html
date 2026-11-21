@@ -2,7 +2,7 @@
 
 > Digital specialist based in Las Vegas, NV who builds AI workflows that take repeatable work from intake to done, with a checklist and a human review before anything goes out. Open to full-time and contract roles.
 
-Contact: mrm.work415@gmail.com · https://www.linkedin.com/in/marcellomiranda
+Contact: https://www.linkedin.com/in/marcellomiranda
 
 ## Core skills
 - AI workflow automation with Claude: custom skills that find, screen, draft, check and track work
