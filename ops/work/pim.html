@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Space+Mono:wght@400;700&amp;display=swap">
-<link rel="stylesheet" href="../../css/track.css?v=4">
+<link rel="stylesheet" href="../../css/track.css?v=5">
 <link rel="stylesheet" href="../../css/tracks.css">
 <script src="../../css/ga-load.js"></script>
 <script src="../../css/ga-events.js" defer></script>
@@ -152,6 +152,20 @@
       <div><p>Each product had a parent record and many variants by color and size, sold differently by country and customer segment. The data had to be right before a page went live.</p></div>
       <h2>What I did</h2>
       <div><ol class="cs-list"><li>Managed parent/child hierarchies, variant SKUs, product codes, colors and sizes in PIM</li><li>Assorted SKUs by country and customer segment</li><li>Set purchase rules such as quantity limits</li><li>Published up to 1,000 product parts a month on localized product pages</li><li>Coordinated translation for 88 countries and checked content in staging before go-live</li><li>Worked tickets with marketing, content, localization and publishing teams</li></ol></div>
+<h2>PIM, up close</h2>
+<div>
+<p>In PIM, a product is a family. A parent record holds what all versions share, and child records hold each sellable variant. Every child needs its own part number, and its fields have to agree with each other.</p>
+<div class="cs-split">
+<div class="cs-card"><span class="mono">Parent</span><strong>The product family</strong><p>A summary record, like one case model, with shared details and links to every child.</p></div>
+<div class="cs-card"><span class="mono">Child</span><strong>Each sellable SKU</strong><p>One record per color or size, with its own part number, part name, display name, market and segment.</p></div>
+</div>
+</div>
+<h2>How I did it</h2>
+<div><ol class="cs-list"><li>Set up parent and child records, variant SKUs, product codes, colors and sizes</li><li>Assorted each SKU by country and customer segment</li><li>Set purchase rules such as quantity limits</li><li>Filtered and combined XML product files to the part numbers in each request</li><li>Kept parent records with their children when narrowing a file down</li><li>Published up to 1,000 product parts a month on localized pages</li></ol></div>
+<h2>A catch from QA</h2>
+<div><p>In one combined file, a part&rsquo;s display name said one color while its part name said another. I fixed it, then checked every other part in the file for the same mismatch before it went out.</p></div>
+<h2>How I checked it</h2>
+<div><ol class="cs-list"><li>Confirmed every part number in the request was in the file, and flagged any that weren&rsquo;t</li><li>Checked display names against part names for each SKU</li><li>Checked country and segment assortment before release</li><li>Previewed pages in staging before go-live</li></ol></div>
       <h2>How it helped</h2>
       <div><p>Checking the data against each request before release kept variants, assortments and purchase rules right in every market.</p></div>
       <h2>Skills used</h2>

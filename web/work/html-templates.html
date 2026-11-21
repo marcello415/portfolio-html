@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Space+Mono:wght@400;700&amp;display=swap">
-<link rel="stylesheet" href="../../css/track.css?v=4">
+<link rel="stylesheet" href="../../css/track.css?v=5">
 <link rel="stylesheet" href="../../css/tracks.css">
 <script src="../../css/ga-load.js"></script>
 <script src="../../css/ga-events.js" defer></script>
@@ -160,6 +160,23 @@
       <div><p>Gap, Gap Factory, Gap Factory Canada and Old Navy sent a high volume of email every week. Each build had to render correctly across clients and devices and meet accessibility standards.</p></div>
       <h2>What I did</h2>
       <div><ol class="cs-list"><li>Coded 10,000+ responsive HTML builds as part of a team of 15</li><li>Built reusable templates and modules so new layouts went together faster</li><li>Added Movable Ink modules like countdown timers and inventory feeds</li><li>Ran Litmus QA for rendering, links, tracking and accessibility</li><li>Handed assets off between producers and developers in Asana</li></ol></div>
+<h2>Email HTML, up close</h2>
+<div>
+<p>Email HTML is not web HTML. Clients like Outlook ignore modern CSS, so every build used tables, inline styles and fallbacks to look the same everywhere.</p>
+<div class="cs-split">
+<div class="cs-card"><span class="mono">Reusable modules</span><strong>Swap content, not code</strong><p>Headers, heroes, product grids and footers were built as modules that could be reused across brands.</p></div>
+<div class="cs-card"><span class="mono">Toggles</span><strong>Show or hide per send</strong><p>AMPscript switches at the top of each email turned banners like free shipping and rewards on or off.</p></div>
+</div>
+</div>
+<h2>How I built it</h2>
+<div><ol class="cs-list"><li>Used nested tables about 600px wide, with inline CSS for clients that strip style blocks</li><li>Added media queries so columns stacked on phones</li><li>Used Outlook conditional comments where it needed its own fixes</li><li>Built buttons that still worked with images turned off</li><li>Added Movable Ink modules for countdown timers and inventory feeds</li></ol></div>
+<h2>A line from the code</h2>
+<div><pre class="cs-code mono"><code>%%[ set @FreeShipBnr = "Y"
+    set @displayRewards = "y"
+    set @hideAttrition = "Y" ]%%</code></pre>
+<p class="cs-note">Toggles at the top of each build. Flip one value and the banner shows or hides, without touching the layout.</p></div>
+<h2>How I checked it</h2>
+<div><ol class="cs-list"><li>Ran Litmus across Outlook, Gmail, Apple Mail and mobile</li><li>Checked alt text, contrast and live text for accessibility</li><li>Clicked every link and confirmed tracking on test sends</li></ol></div>
       <h2>How it helped</h2>
       <div><p>Reusable templates and modules let the team keep up with weekly volume across four brands without rebuilding layouts from scratch.</p></div>
       <h2>Skills used</h2>

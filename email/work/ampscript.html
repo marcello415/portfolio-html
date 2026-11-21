@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Space+Mono:wght@400;700&amp;display=swap">
-<link rel="stylesheet" href="../../css/track.css?v=4">
+<link rel="stylesheet" href="../../css/track.css?v=5">
 <link rel="stylesheet" href="../../css/tracks.css">
 <script src="../../css/ga-load.js"></script>
 <script src="../../css/ga-events.js" defer></script>
@@ -161,6 +161,27 @@
       <div><p>Customers got different content depending on brand, loyalty tier and region. The same template had to handle every version.</p></div>
       <h2>What I did</h2>
       <div><ol class="cs-list"><li>Wrote AMPscript for personalized subject lines and conditional content</li><li>Set up A/B tests on subject lines, from names, images and Movable Ink content</li><li>Used data extension fields to drive dynamic content</li><li>Worked with SQL queries from the data team for audience segmentation</li><li>Checked every version on test sends before handoff</li></ol></div>
+<h2>Personalization, up close</h2>
+<div>
+<p>One template served many customers. AMPscript read each customer&rsquo;s data at send time and decided what they saw: their name, their balance, their department and their language.</p>
+<div class="cs-split">
+<div class="cs-card"><span class="mono">Lookup</span><strong>Pull data from another table</strong><p>Values like saved cart items came from a separate data extension, matched on the customer&rsquo;s key.</p></div>
+<div class="cs-card"><span class="mono">IF / ELSEIF</span><strong>Show content by segment</strong><p>A shopper&rsquo;s department (women, men, kids, baby) decided which version of the email they got.</p></div>
+</div>
+</div>
+<h2>How I built it</h2>
+<div><ol class="cs-list"><li>Wrote subject lines with a fallback when a first name was missing</li><li>Used IF / ELSEIF to switch content by segment and department</li><li>Used Lookup to pull values from other data extensions</li><li>Split audiences for tests, such as 33/33/34 across three versions</li><li>Claimed unique promo codes per customer with ClaimRow</li></ol></div>
+<h2>A line from the code</h2>
+<div><pre class="cs-code mono"><code>%%[ if @adhoc5 == "WMN" or @adhoc5 == "MAT" then
+      set @adhoc_evo_append = "WOMEN"
+    elseif @adhoc5 == "MEN" then
+      set @adhoc_evo_append = "MEN"
+    else
+      set @adhoc_evo_append = "ROF"
+    endif ]%%</code></pre>
+<p class="cs-note">A shop-by-size email picked its version from the shopper&rsquo;s department. Anyone outside the main groups got the general version.</p></div>
+<h2>How I checked it</h2>
+<div><ol class="cs-list"><li>Built a test record for every branch, including missing data</li><li>Previewed each version as a test subscriber before handoff</li><li>Checked test splits added up and each version reached its group</li></ol></div>
       <h2>How it helped</h2>
       <div><p>One template could cover many customer versions, which cut down on separate builds and kept content consistent.</p></div>
       <h2>Skills used</h2>

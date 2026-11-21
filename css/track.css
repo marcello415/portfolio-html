@@ -333,3 +333,12 @@ main section[id],#contact{scroll-margin-top:88px}
 .apply-map dt{font-weight:800}
 @media (max-width:860px){.apply-map{grid-template-columns:1fr}.apply-map dt{border-bottom:0;padding-bottom:0}}
 #ai-work{padding-bottom:40px}
+.cs-split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.cs-card{border:1.5px solid var(--line);background:#fff;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.cs-card span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.cs-card strong{font-size:17px}
+.cs-card p{font-size:15px;line-height:1.55;color:var(--muted)}
+.cs-body>div{min-width:0}
+.cs-code{margin:0;max-width:100%;background:var(--ink);color:#E9E6DE;padding:18px 20px;font-size:13px;line-height:1.6;overflow-x:auto;white-space:pre}
+.cs-note{margin-top:12px!important;font-size:15px!important;color:var(--muted)}
+@media (max-width:640px){.cs-split{grid-template-columns:1fr}}

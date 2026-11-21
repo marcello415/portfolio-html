@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Space+Mono:wght@400;700&amp;display=swap">
-<link rel="stylesheet" href="../../css/track.css?v=4">
+<link rel="stylesheet" href="../../css/track.css?v=5">
 <link rel="stylesheet" href="../../css/tracks.css">
 <script src="../../css/ga-load.js"></script>
 <script src="../../css/ga-events.js" defer></script>
@@ -152,6 +152,18 @@
       <div><p>Live content made emails more useful, but it gave them more ways to break. Every email needed checking across clients before deployment.</p></div>
       <h2>What I did</h2>
       <div><ol class="cs-list"><li>Added Movable Ink countdown timers, geo-targeting and inventory feeds to SFMC templates</li><li>Ran Litmus QA for rendering across email clients and devices</li><li>Checked links, tracking and accessibility on every build</li><li>Checked CAN-SPAM requirements before handoff</li><li>Logged and fixed issues before emails went to deployment</li></ol></div>
+<h2>Live content, up close</h2>
+<div>
+<p>Movable Ink images are built when the email is opened, not when it&rsquo;s sent. That makes them useful, and it means they can break in ways a normal image can&rsquo;t.</p>
+<div class="cs-split">
+<div class="cs-card"><span class="mono">Countdown timers</span><strong>Real urgency</strong><p>Timers counted down to the end of a sale at the moment each customer opened the email.</p></div>
+<div class="cs-card"><span class="mono">Geo and inventory</span><strong>Nearest store, live stock</strong><p>Blocks showed the closest store and products that were still in stock.</p></div>
+</div>
+</div>
+<h2>How I built it</h2>
+<div><ol class="cs-list"><li>Placed Movable Ink blocks into SFMC templates with their tracking parameters</li><li>Kept the &ldquo;display images&rdquo; fallback text for customers with images turned off</li><li>Set up Movable Ink content for A/B tests, such as with and without a timer</li></ol></div>
+<h2>How I checked it</h2>
+<div><ol class="cs-list"><li>Ran Litmus across Outlook, Gmail, Apple Mail, mobile and dark mode</li><li>Checked live blocks showed the right timer, store and products</li><li>Clicked every link and confirmed tracking</li><li>Checked the unsubscribe link and mailing address for CAN-SPAM</li><li>Logged issues and re-tested fixes before deployment</li></ol></div>
       <h2>How it helped</h2>
       <div><p>Catching rendering and link problems in Litmus meant they got fixed before the send, not after.</p></div>
       <h2>Skills used</h2>
