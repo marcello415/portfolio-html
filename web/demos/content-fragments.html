@@ -139,9 +139,51 @@ h1{margin:16px 0 10px;font-size:44px;line-height:1.02;letter-spacing:-.03em;max-
   .fields li{grid-template-columns:96px minmax(0,1fr)}
   .wire .hero .t{font-size:24px}
 }
+
+/* site nav */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(22,21,18,.07)}
+.site-header .nav{max-width:1180px;margin:0 auto;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;font-family:'Archivo',system-ui,sans-serif}
+.site-header .brand{font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none;color:#161512}
+.site-header .nav-links{display:flex;gap:34px;align-items:center}
+.site-header .nav-links a{font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.01em;color:#161512}
+.site-header a.is-contact{color:#B8381F}
+.site-header .nav-toggle-cb{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+.site-header .nav-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:42px;height:42px;background:none;border:none;cursor:pointer;padding:0}
+.site-header .nav-toggle span{width:18px;height:2px;background:#161512;display:block}
+.site-header .nav-mobile{display:none}
+@media (max-width:860px){
+  .site-header .nav{padding:18px 24px}
+  .site-header .nav-links{display:none}
+  .site-header .nav-toggle{display:flex}
+  .site-header .nav-mobile{flex-direction:column;border-top:1px solid rgba(22,21,18,.07);padding:8px 24px 18px;gap:2px;font-family:'Archivo',system-ui,sans-serif}
+  .site-header .nav-toggle-cb:checked ~ .nav-mobile{display:flex}
+  .site-header .nav-mobile a{font-weight:600;font-size:17px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(22,21,18,.06);color:#161512}
+  .site-header .nav-mobile a.is-contact{color:#B8381F;border-bottom:0}
+}
 </style>
 </head>
 <body>
+<header class="site-header">
+    <input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb" hidden>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="../">Marcello Miranda</a>
+      <div class="nav-links">
+        <a href="../#summary">Summary</a>
+        <a href="../#resume">R&eacute;sum&eacute;</a>
+        <a href="../#work">Selected work</a>
+        <a class="is-contact" href="../#contact">Contact &#8599;</a>
+      </div>
+      <label class="nav-toggle" for="nav-toggle-cb" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+    </nav>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="../#summary">Summary</a>
+      <a href="../#resume">R&eacute;sum&eacute;</a>
+      <a href="../#work">Selected work</a>
+      <a class="is-contact" href="../#contact">Contact &#8599;</a>
+    </div>
+  </header>
 <div class="wrap">
 
 <header class="top">
