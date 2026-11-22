@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Gap Loyalty Program Emails | Marcello Miranda</title>
-<meta name="description" content="A storyboard of the loyalty emails I built for Gap&rsquo;s Integrated Loyalty Program in Salesforce Marketing Cloud: member programs, loyalty modules in daily sends, splits, versions and QA.">
+<title>Gap Good Rewards Emails | Marcello Miranda</title>
+<meta name="description" content="A storyboard of the loyalty emails I built for Gap Good Rewards (Gap&rsquo;s Integrated Loyalty Program) in Salesforce Marketing Cloud: member programs, rewards modules in daily sends, splits, versions and QA.">
 <link rel="icon" type="image/svg+xml" href="../../images/icon-email.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,9 +44,9 @@
 
 <header class="top">
   <a class="back" href="../work/campaigns.html">&larr; Promotional &amp; Lifecycle Email case study</a>
-  <h1>Gap loyalty program emails</h1>
-  <p class="lead">A storyboard of my work on Gap&rsquo;s Integrated Loyalty Program (ILP): the member programs, the loyalty blocks in the daily emails, the tests and the QA. Each step shows what happens, with an example, and what my part was.</p>
-  <dl class="ctx"><div><dt>Where</dt><dd>Gap Inc, as Email Developer</dd></div><div><dt>Program</dt><dd>Integrated Loyalty Program (ILP)</dd></div><div><dt>Brands</dt><dd>Gap, Gap Factory, Gap Factory Canada</dd></div><div><dt>Tools</dt><dd>Salesforce Marketing Cloud, AMPscript, Litmus</dd></div></dl>
+  <h1>Gap Good Rewards emails</h1>
+  <p class="lead">A storyboard of my work on Gap Good Rewards, built under Gap&rsquo;s Integrated Loyalty Program (ILP): the member programs, the rewards modules in the daily emails, the tests and the QA. Each step shows what happens, with an example, and what my part was.</p>
+  <dl class="ctx"><div><dt>Where</dt><dd>Gap Inc, as Email Developer</dd></div><div><dt>Program</dt><dd>Gap Good Rewards (ILP)</dd></div><div><dt>Brands</dt><dd>Gap, Gap Factory, Gap Factory Canada</dd></div><div><dt>Tools</dt><dd>Salesforce Marketing Cloud, AMPscript, Litmus</dd></div></dl>
   <p class="note">Images are from Gap Factory emails I built in 2023. Names and member data are test data.</p>
 </header>
 
@@ -55,11 +55,11 @@
     <div>
       <div class="step">Step 1 &middot; The program</div>
       <h2>One rewards program, every brand</h2>
-      <p>Gap Inc. moved its brands onto one loyalty program. Every member had a tier, a points balance and rewards, and some also had the Gap card. The emails had to show each member where they stood.</p>
-      <div class="mine"><b>My part</b>Building the loyalty programs and the loyalty parts of the daily emails for Gap and Gap Factory, in English and French.</div>
+      <p>Gap Inc. moved its brands onto one rewards program, Gap Good Rewards. Every Rewards Member had a tier (Core, Enthusiast or Icon), points and rewards, and some also had a Gap Good Rewards credit card. The emails had to show each member where they stood.</p>
+      <div class="mine"><b>My part</b>Building the ILP programs and the rewards modules in the daily emails for Gap and Gap Factory, in English and French.</div>
     </div>
     <div>
-<div class="ex"><div class="ex-h"><span>What each member had</span><span>member record</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Tier</span><span class="v">Core, Enthusiast or Icon</span></li><li><span class="k">Points</span><span class="v">Balance and rewards earned</span></li><li><span class="k">Card</span><span class="v">Cardholder or not</span></li><li><span class="k">GapCash</span><span class="v">Earner or not</span></li><li><span class="k">Brand</span><span class="v">Gap, Gap Factory, Gap Factory Canada</span></li><li><span class="k">Language</span><span class="v">English or French</span></li></ul></div></div>
+<div class="ex"><div class="ex-h"><span>What each member had</span><span>member record</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Tier</span><span class="v">Core, Enthusiast or Icon</span></li><li><span class="k">Points</span><span class="v">Points and rewards</span></li><li><span class="k">Card</span><span class="v">Cardmember or not</span></li><li><span class="k">GapCash</span><span class="v">Earner or not</span></li><li><span class="k">Brand</span><span class="v">Gap, Gap Factory, Gap Factory Canada</span></li><li><span class="k">Language</span><span class="v">English or French</span></li></ul></div></div>
     </div>
   </li>
 
@@ -67,7 +67,7 @@
     <div>
       <div class="step">Step 2 &middot; The programs</div>
       <h2>Emails for members</h2>
-      <p>Some loyalty emails went out when something happened to the member, not on the promo calendar: joining the program, a birthday, or moving up a tier.</p>
+      <p>Some Gap Good Rewards emails went out when something happened to the member, not on the promo calendar: joining the program, a birthday, or moving up a tier.</p>
       <div class="mine"><b>My part</b>Coding the ILP lifecycle programs, with a version for each brand and language.</div>
     </div>
     <div>
@@ -79,45 +79,45 @@
     <div>
       <div class="step">Step 3 &middot; The data</div>
       <h2>One lookup per email</h2>
-      <p>A shared content block looked up the member&rsquo;s loyalty data once per email: member or not, tier, points, rewards and card. Every loyalty block read from those results.</p>
+      <p>A shared content block, the ILP data lookup, ran once per email: Rewards Member or not, tier, points, rewards and card. Every rewards module read from those results.</p>
       <div class="mine"><b>My part</b>Pulling the shared lookup into each build and using its results to decide what showed.</div>
     </div>
     <div>
-<div class="ex"><div class="ex-h"><span>Lookup results</span><span>test member</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Member</span><span class="v">Yes</span></li><li><span class="k">First name</span><span class="v">Mochi</span></li><li><span class="k">Tier</span><span class="v">Icon</span></li><li><span class="k">Points</span><span class="v">499</span></li><li><span class="k">Rewards</span><span class="v">$4</span></li><li><span class="k">Cardholder</span><span class="v">No</span></li></ul></div></div>
+<div class="ex"><div class="ex-h"><span>Lookup results</span><span>test member</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Rewards Member</span><span class="v">Yes</span></li><li><span class="k">First name</span><span class="v">Mochi</span></li><li><span class="k">Tier</span><span class="v">Icon</span></li><li><span class="k">Points</span><span class="v">499</span></li><li><span class="k">Rewards</span><span class="v">$4</span></li><li><span class="k">Cardmember</span><span class="v">No</span></li></ul></div></div>
     </div>
   </li>
 
   <li class="frame">
     <div>
       <div class="step">Step 4 &middot; The modules</div>
-      <h2>Loyalty blocks in the daily emails</h2>
-      <p>Promos carried loyalty blocks too. Each block had a switch at the top of the email, so every send could turn on the status bar, the points block, the birthday banner, GapCash or the card offer.</p>
-      <div class="mine"><b>My part</b>Setting the switches for each send and checking each block against the member&rsquo;s record.</div>
+      <h2>Rewards modules in the daily emails</h2>
+      <p>Promos carried rewards modules too. Each one had a toggle at the top of the email, so every send could turn on the status widget, the birthday banner, the cash programs (GapCash) or card acquisition.</p>
+      <div class="mine"><b>My part</b>Setting the toggles for each send and checking each module against the member&rsquo;s record.</div>
     </div>
     <div>
-<div class="ex"><div class="ex-h"><span>Top of the email</span><span>per send</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Status bar</span><span class="v">On</span></li><li><span class="k">Points block</span><span class="v">On</span></li><li><span class="k">Birthday banner</span><span class="v">Off</span></li><li><span class="k">GapCash</span><span class="v">Off</span></li><li><span class="k">Card offer</span><span class="v">On</span></li></ul></div></div>
-<div class="ex"><div class="ex-h"><span>In the email</span><span>Gap Factory, 2023</span></div><div class="ex-b"><img class="shot" src="images/ilp-status-bar.jpg" alt="Status bar: member name, Icon level, $4 in rewards, 499 points" width="640" loading="lazy"><img class="shot" src="images/ilp-status-widget.jpg" alt="Icon Rewards Member block showing 499 points and a family of brands bonus" width="640" loading="lazy"><img class="shot" src="images/ilp-gapcash-bar.jpg" alt="GapCash bar: Redeem your $60" width="640" loading="lazy"></div></div>
+<div class="ex"><div class="ex-h"><span>Top of the email</span><span>per send</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Status widget</span><span class="v">On</span></li><li><span class="k">Birthday banner</span><span class="v">Off</span></li><li><span class="k">Cash programs</span><span class="v">Off</span></li><li><span class="k">Card acquisition</span><span class="v">On</span></li></ul></div></div>
+<div class="ex"><div class="ex-h"><span>In the email</span><span>Gap Factory, 2023</span></div><div class="ex-b"><img class="shot" src="images/ilp-status-bar.jpg" alt="Status widget: member name, Icon level, $4 in rewards, 499 points" width="640" loading="lazy"><img class="shot" src="images/ilp-status-widget.jpg" alt="Icon Rewards Member block showing 499 points and a family of brands bonus" width="640" loading="lazy"><img class="shot" src="images/ilp-gapcash-bar.jpg" alt="GapCash bar: Redeem your $60" width="640" loading="lazy"></div></div>
     </div>
   </li>
 
   <li class="frame">
     <div>
-      <div class="step">Step 5 &middot; Cardholders</div>
-      <h2>The card offer fits the member</h2>
-      <p>The card offer worked off the same lookup. Members without the Gap card saw a way to apply. Cardholders saw a way to manage their card.</p>
+      <div class="step">Step 5 &middot; Card acquisition</div>
+      <h2>Apply or manage, by cardmember</h2>
+      <p>Card acquisition worked off the same lookup. Members without a Gap Good Rewards credit card saw &ldquo;Apply for a card.&rdquo; Cardmembers saw &ldquo;Manage your card.&rdquo;</p>
       <div class="mine"><b>My part</b>Building the condition that picked the right version for each member.</div>
     </div>
     <div>
 <div class="ex"><div class="ex-h"><span>No card</span><span>apply</span></div><div class="ex-b"><img class="shot" src="images/ilp-card-apply.jpg" alt="Footer row with Pick up in store, Gift card and Apply for a card" width="640" loading="lazy"></div></div>
-<div class="ex"><div class="ex-h"><span>Cardholder</span><span>manage</span></div><div class="ex-b"><img class="shot" src="images/ilp-card-manage.jpg" alt="Footer row with Pick up in store, Gift card and Manage your card" width="640" loading="lazy"></div></div>
+<div class="ex"><div class="ex-h"><span>Cardmember</span><span>manage</span></div><div class="ex-b"><img class="shot" src="images/ilp-card-manage.jpg" alt="Footer row with Pick up in store, Gift card and Manage your card" width="640" loading="lazy"></div></div>
     </div>
   </li>
 
   <li class="frame">
     <div>
       <div class="step">Step 6 &middot; Testing</div>
-      <h2>Test and control for members</h2>
-      <p>Some sends split loyalty members 50/50 into test and control groups. Each group got its own code on the email version, so results could be read by group. Non-members got their own split.</p>
+      <h2>Test and control for Rewards Members</h2>
+      <p>Some sends split Rewards Members 50/50 into test and control groups. Each group got its own code on the email version, so results could be read by group. Non-members got their own split.</p>
       <div class="mine"><b>My part</b>Setting up the splits in AMPscript and checking each group on test sends.</div>
     </div>
     <div>
@@ -128,12 +128,12 @@
   <li class="frame">
     <div>
       <div class="step">Step 7 &middot; The switch</div>
-      <h2>Moving members off the old program</h2>
-      <p>When the old rewards program ended, members who still had old rewards saw a banner about them at the top of the email through January 2022, in place of the status bar.</p>
-      <div class="mine"><b>My part</b>Writing the date check and the lookup against the old rewards data.</div>
+      <h2>Moving members off legacy rewards</h2>
+      <p>When the legacy rewards program ended, members who still had legacy rewards saw a banner about them at the top of the email through January 2022, in place of the status widget.</p>
+      <div class="mine"><b>My part</b>Writing the date check and the lookup against the legacy rewards data.</div>
     </div>
     <div>
-<div class="ex"><div class="ex-h"><span>Who saw what</span><span>Jan 2022</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col">Member</th><th scope="col">Top of the email</th></tr></thead><tbody><tr><td>Has old rewards</td><td>Old rewards banner</td></tr><tr><td>No old rewards</td><td>Status bar</td></tr><tr><td>After Jan 31</td><td>Status bar</td></tr></tbody></table></div></div>
+<div class="ex"><div class="ex-h"><span>Who saw what</span><span>Jan 2022</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col">Member</th><th scope="col">Top of the email</th></tr></thead><tbody><tr><td>Has legacy rewards</td><td>Legacy rewards banner</td></tr><tr><td>No legacy rewards</td><td>Status widget</td></tr><tr><td>After Jan 31</td><td>Status widget</td></tr></tbody></table></div></div>
     </div>
   </li>
 
@@ -141,7 +141,7 @@
     <div>
       <div class="step">Step 8 &middot; Versions</div>
       <h2>Every brand, both languages</h2>
-      <p>Each program and block had versions for Gap and Gap Factory. Gap Factory Canada had English and French, and in French GapCash is DollarsGap.</p>
+      <p>Each program and module had versions for Gap and Gap Factory. Gap Factory Canada had English and French, and in French GapCash is DollarsGap.</p>
       <div class="mine"><b>My part</b>Building and checking the English and French versions side by side.</div>
     </div>
     <div>
@@ -157,8 +157,8 @@
       <div class="mine"><b>My part</b>Building the test records, checking every version, and handing off to deployment.</div>
     </div>
     <div>
-<div class="ex"><div class="ex-h"><span>Test records</span><span>what each should show</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col">Test record</th><th scope="col">Should show</th></tr></thead><tbody><tr><td>Core, no card</td><td>Status bar, apply for the card</td></tr><tr><td>Icon, cardholder</td><td>Points block, manage your card</td></tr><tr><td>GapCash earner</td><td>Redeem bar with their amount</td></tr><tr><td>No first name</td><td>Greeting without a name</td></tr><tr><td>French, Canada</td><td>French copy and DollarsGap</td></tr></tbody></table></div></div>
-<div class="ex"><div class="ex-h"><span>Checked on every send</span><span>before handoff</span></div><div class="ex-b"><ul class="check"><li>Tier, points and rewards match the test record</li><li>Only cardholders see &ldquo;Manage your card&rdquo;</li><li>Version codes are right for each split</li><li>Links and tracking work</li><li>Renders in Outlook, Gmail, Apple Mail and mobile</li></ul></div></div>
+<div class="ex"><div class="ex-h"><span>Test records</span><span>what each should show</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col">Test record</th><th scope="col">Should show</th></tr></thead><tbody><tr><td>Core, no card</td><td>Status widget, &ldquo;Apply for a card&rdquo;</td></tr><tr><td>Icon, cardmember</td><td>Icon Rewards Member module, &ldquo;Manage your card&rdquo;</td></tr><tr><td>GapCash earner</td><td>&ldquo;Redeem your $&rdquo; bar with their amount</td></tr><tr><td>No first name</td><td>Greeting without a name</td></tr><tr><td>French, Canada</td><td>French copy and DollarsGap</td></tr></tbody></table></div></div>
+<div class="ex"><div class="ex-h"><span>Checked on every send</span><span>before handoff</span></div><div class="ex-b"><ul class="check"><li>Tier, points and rewards match the test record</li><li>Only cardmembers see &ldquo;Manage your card&rdquo;</li><li>Version codes are right for each split</li><li>Links and tracking work</li><li>Renders in Outlook, Gmail, Apple Mail and mobile</li></ul></div></div>
     </div>
   </li>
 
@@ -166,7 +166,7 @@
 
 <section class="carry">
   <h2>Where it carries over</h2>
-  <p>Loyalty email works the same way in any industry. Tiers, points and member offers change, but the job doesn&rsquo;t: look up each member once, show them only what fits, and test every kind of member before the send.</p>
+  <p>Rewards email works the same way in any industry. Tiers, points and member offers change, but the job doesn&rsquo;t: look up each member once, show them only what fits, and test every kind of member before the send.</p>
   <div class="links"><a class="dark" href="../work/campaigns.html">Read the case study</a><a href="gapcash.html">GapCash storyboard</a><a href="https://marcello415.github.io/gap-html/emails/">See the Gap Factory emails</a></div>
 </section>
 </div>
