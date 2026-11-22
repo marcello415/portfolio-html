@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>How Live Email Content Comes Together | Marcello Miranda</title>
+<meta name="description" content="A step-by-step storyboard of how I added Movable Ink countdown timers, geo-targeting and inventory feeds to SFMC emails, and checked them in Litmus.">
+<link rel="icon" type="image/svg+xml" href="../../images/icon-email.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="../../css/story.css?v=1">
+<script src="../../css/ga-load.js"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LQWW2RXWQE');</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="back" href="../work/movable-ink-litmus.html">&larr; Movable Ink &amp; Litmus case study</a>
+  <h1>How live email content comes together</h1>
+  <p class="lead">A storyboard of how I added Movable Ink live content to Gap emails and checked it before every send. Each step shows what happens, with an example, and what my part was.</p>
+  <dl class="ctx"><div><dt>Where</dt><dd>Gap Inc, as Email Developer</dd></div><div><dt>Live content</dt><dd>Countdown timers, geo-targeting, inventory feeds</dd></div><div><dt>My role</dt><dd>Building the blocks into templates and QA</dd></div><div><dt>Tools</dt><dd>Movable Ink, Salesforce Marketing Cloud, Litmus</dd></div></dl>
+  <p class="note">Times, places and products in the examples are illustrative. The steps are the ones I followed.</p>
+</header>
+
+<ol class="board">
+  <li class="frame">
+    <div>
+      <div class="step">Step 1 &middot; The idea</div>
+      <h2>An image built when the email is opened</h2>
+      <p>A normal email image is the same for everyone and never changes after the send. A Movable Ink image is built at the moment each customer opens the email, so it can show something true right now: time left in a sale, the closest store, what&rsquo;s still in stock.</p><p>That makes it useful, and it means it can break in ways a normal image can&rsquo;t.</p>
+      <div class="mine"><b>My part</b>Adding three kinds of live content to SFMC templates: countdown timers, geo-targeting and inventory feeds.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Normal image vs live image</span><span>compared</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col"></th><th scope="col">Normal image</th><th scope="col">Movable Ink</th></tr></thead><tbody><tr><td>Built</td><td>Before the send</td><td>When each customer opens</td></tr><tr><td>Same for everyone</td><td>Yes</td><td>No</td></tr><tr><td>Can change after the send</td><td>No</td><td>Yes</td></tr><tr><td>Needs a fallback</td><td>Alt text</td><td>Alt text and &ldquo;display images&rdquo; text</td></tr></tbody></table></div></div><div class="figure" style="margin-top:20px"><svg viewBox="0 0 560 340" role="img" aria-label="An email with a live countdown timer, nearest store and in-stock products"><rect width="560" height="340" fill="#EFEDE7"/><g stroke="#E2DFD6" stroke-width="1"><path d="M0 0V340"/><path d="M24 0V340"/><path d="M48 0V340"/><path d="M72 0V340"/><path d="M96 0V340"/><path d="M120 0V340"/><path d="M144 0V340"/><path d="M168 0V340"/><path d="M192 0V340"/><path d="M216 0V340"/><path d="M240 0V340"/><path d="M264 0V340"/><path d="M288 0V340"/><path d="M312 0V340"/><path d="M336 0V340"/><path d="M360 0V340"/><path d="M384 0V340"/><path d="M408 0V340"/><path d="M432 0V340"/><path d="M456 0V340"/><path d="M480 0V340"/><path d="M504 0V340"/><path d="M528 0V340"/><path d="M552 0V340"/><path d="M0 0H560"/><path d="M0 24H560"/><path d="M0 48H560"/><path d="M0 72H560"/><path d="M0 96H560"/><path d="M0 120H560"/><path d="M0 144H560"/><path d="M0 168H560"/><path d="M0 192H560"/><path d="M0 216H560"/><path d="M0 240H560"/><path d="M0 264H560"/><path d="M0 288H560"/><path d="M0 312H560"/><path d="M0 336H560"/></g><rect x="186" y="50" width="200" height="270" rx="24" fill="#161512"/><rect x="180" y="44" width="200" height="270" rx="24" fill="#fff" stroke="#161512" stroke-width="2.5"/><rect x="198" y="70" width="120" height="6" rx="3" fill="#D9D5CC"/><rect x="198" y="82" width="90" height="6" rx="3" fill="#D9D5CC"/><rect x="200" y="98" width="50" height="46" fill="#161512"/><text x="225" y="128" font-family="Archivo, Arial" font-size="24" font-weight="900" fill="#fff" text-anchor="middle">02</text><text x="225" y="158" font-family="Space Mono, monospace" font-size="8" font-weight="700" fill="#161512" text-anchor="middle">DAYS</text><rect x="258" y="98" width="50" height="46" fill="#161512"/><text x="283" y="128" font-family="Archivo, Arial" font-size="24" font-weight="900" fill="#fff" text-anchor="middle">14</text><text x="283" y="158" font-family="Space Mono, monospace" font-size="8" font-weight="700" fill="#161512" text-anchor="middle">HRS</text><rect x="316" y="98" width="50" height="46" fill="#161512"/><text x="341" y="128" font-family="Archivo, Arial" font-size="24" font-weight="900" fill="#fff" text-anchor="middle">37</text><text x="341" y="158" font-family="Space Mono, monospace" font-size="8" font-weight="700" fill="#161512" text-anchor="middle">MIN</text><rect x="198" y="176" width="164" height="44" fill="#fff" stroke="#161512" stroke-width="2"/><path d="M214 188 a8 8 0 1 1 16 0 c0 7 -8 14 -8 14 s-8 -7 -8 -14z" fill="#D6492F"/><rect x="238" y="188" width="100" height="6" rx="3" fill="#D9D5CC"/><rect x="238" y="200" width="70" height="6" rx="3" fill="#D9D5CC"/><rect x="198" y="232" width="50" height="50" fill="#fff" stroke="#161512" stroke-width="2"/><rect x="255" y="232" width="50" height="50" fill="#fff" stroke="#161512" stroke-width="2"/><rect x="312" y="232" width="50" height="50" fill="#fff" stroke="#161512" stroke-width="2"/><path d="M313 236 L343 278 M343 236 L313 278" stroke="#D6492F" stroke-width="2.5"/><rect x="410" y="108" width="51" height="20" rx="10" fill="#fff" stroke="#161512" stroke-width="2"/><text x="435" y="122" font-family="Space Mono, monospace" font-size="10" font-weight="700" letter-spacing=".5" fill="#161512" text-anchor="middle">TIMER</text><rect x="410" y="188" width="37" height="20" rx="10" fill="#fff" stroke="#161512" stroke-width="2"/><text x="428" y="202" font-family="Space Mono, monospace" font-size="10" font-weight="700" letter-spacing=".5" fill="#161512" text-anchor="middle">GEO</text><rect x="410" y="248" width="79" height="20" rx="10" fill="#fff" stroke="#161512" stroke-width="2"/><text x="449" y="262" font-family="Space Mono, monospace" font-size="10" font-weight="700" letter-spacing=".5" fill="#161512" text-anchor="middle">INVENTORY</text><path d="M400 118 H372 M400 198 H366 M400 258 H366" stroke="#D6492F" stroke-width="2.5" stroke-dasharray="5 4"/><rect x="30" y="236" width="130" height="64" fill="#161512"/><text x="44" y="272" font-family="Archivo, Arial, sans-serif" font-size="30" font-weight="900" fill="#FBFAF7">OPEN</text><text x="44" y="290" font-family="Space Mono, monospace" font-size="9" font-weight="700" letter-spacing="1" fill="#D8D4CA">BUILT AT OPEN TIME</text><text x="16" y="26" font-family="Space Mono, monospace" font-size="13" font-weight="700" letter-spacing="1.5" fill="#B8381F">LIVE CONTENT &#183; BUILT AT OPEN</text><rect x="1" y="1" width="558" height="338" fill="none" stroke="#161512" stroke-width="2"/></svg></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 2 &middot; Countdown timer</div>
+      <h2>Real urgency, at the moment of opening</h2>
+      <p>A countdown timer counts down to the end of a sale from the moment each customer opens the email. Someone who opens it the morning it lands and someone who opens it the night before the sale ends each see the real time left.</p>
+      <div class="mine"><b>My part</b>Placing the timer block in the template and checking it showed the right end time.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Same email, opened at different times</span><span>example</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col">Opened</th><th scope="col">Timer shows</th></tr></thead><tbody><tr><td>Monday, 9 AM</td><td>2 days 14 hrs left</td></tr><tr><td>Tuesday, 6 PM</td><td>1 day 5 hrs left</td></tr><tr><td>Wednesday, 10 PM</td><td>1 hr left</td></tr><tr><td>After the sale</td><td>Sale-ended image</td></tr></tbody></table></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 3 &middot; Geo-targeting</div>
+      <h2>The closest store, for each customer</h2>
+      <p>A geo-targeted block shows the store nearest to where the email is opened, so two customers with the same email see different stores.</p>
+      <div class="mine"><b>My part</b>Adding the geo block to the template and checking it showed a store for each test location.</div>
+    </div>
+    <div>
+<div class="versions"><div class="ex"><div class="ex-h"><span>Opened in Las Vegas</span><span>example</span></div><div class="ex-b"><ul><li>Nearest store: Las Vegas</li><li>Address and hours</li><li>Link to directions</li></ul></div></div><div class="ex"><div class="ex-h"><span>Opened in San Francisco</span><span>example</span></div><div class="ex-b"><ul><li>Nearest store: San Francisco</li><li>Address and hours</li><li>Link to directions</li></ul></div></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 4 &middot; Inventory feed</div>
+      <h2>Only products that are still in stock</h2>
+      <p>An inventory block reads a live product feed when the email is opened. If a product sells out after the send, it drops out and the next in-stock product takes its place, so nobody clicks through to something they can&rsquo;t buy.</p>
+      <div class="mine"><b>My part</b>Adding inventory blocks to templates and checking that the products showing were in stock.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Product block</span><span>at send vs at open</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col"></th><th scope="col">At send</th><th scope="col">At open</th></tr></thead><tbody><tr><td>Slot 1</td><td>Denim jacket</td><td>Denim jacket</td></tr><tr><td>Slot 2</td><td>Linen shirt</td><td>Linen shirt</td></tr><tr><td>Slot 3</td><td>Canvas sneaker</td><td><span class="bad-t">Sold out</span> &rarr; Chino short</td></tr></tbody></table></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 5 &middot; Into the template</div>
+      <h2>A block in the SFMC template, with a fallback</h2>
+      <p>Each Movable Ink block goes into the SFMC template as an image with a link, carrying its tracking parameters. Some customers have images turned off, so the &ldquo;display images&rdquo; fallback text stays in place for them.</p>
+      <div class="mine"><b>My part</b>Placing the blocks into SFMC templates with their tracking parameters and keeping the fallback text.</div>
+    </div>
+    <div>
+<pre class="codeblock"><span class="c">&lt;!-- live block: link and image come from Movable Ink --&gt;</span>
+&lt;a href="https://mi.example.com/p/rp/<span class="c">&hellip;</span>"&gt;
+  &lt;img src="https://mi.example.com/p/rp/<span class="c">&hellip;</span>.png"
+       alt="Sale ends soon" width="600"&gt;
+&lt;/a&gt;</pre><p class="cap">The link and image addresses here are placeholders. The alt text is what customers with images off see.</p>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 6 &middot; A/B test</div>
+      <h2>Test whether live content helps</h2>
+      <p>Live content can be tested like anything else in an email. A send can go out with and without a timer, to see which one customers respond to.</p>
+      <div class="mine"><b>My part</b>Setting up Movable Ink content for A/B tests, such as with and without a timer.</div>
+    </div>
+    <div>
+<div class="versions"><div class="ex"><div class="ex-h"><span>Version A</span><span>with timer</span></div><div class="ex-b"><ul><li>Countdown timer above the products</li><li>Everything else the same</li></ul></div></div><div class="ex"><div class="ex-h"><span>Version B</span><span>without timer</span></div><div class="ex-b"><ul><li>Static sale banner instead</li><li>Everything else the same</li></ul></div></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 7 &middot; Litmus QA</div>
+      <h2>Check every client before the send</h2>
+      <p>Every email went through Litmus to see how it rendered across email clients and devices, including dark mode. Live blocks got their own check: the right timer, store and products. Issues were logged, fixed and re-tested before deployment.</p>
+      <div class="mine"><b>My part</b>Running Litmus QA, checking links, tracking, accessibility and CAN-SPAM, and logging and fixing issues before deployment.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>QA checklist</span><span>every email</span></div><div class="ex-b"><ul class="check"><li>Litmus across Outlook, Gmail, Apple Mail and mobile</li><li>Dark mode checked</li><li>Live blocks show the right timer, store and products</li><li>Every link clicked and tracking confirmed</li><li>Images-off fallback text in place</li><li>Unsubscribe link and mailing address for CAN-SPAM</li></ul></div></div><div class="catch"><div class="where">Catch &middot; example &middot; dark mode</div><div class="ba"><div class="bad"><span class="lab">Found</span>Timer digits hard to read on a dark background in one client.</div><div class="good"><span class="lab">Fixed</span>Gave the timer block its own solid background, then re-tested in Litmus.</div></div></div><div style="margin-top:16px"><ol class="flow"><li><span>01</span><b>Build</b>Blocks into the template</li><li><span>02</span><b>Litmus</b>Clients, devices, dark mode</li><li><span>03</span><b>Fix</b>Log, fix and re-test</li><li><span>04</span><b>Hand off</b>To deployment</li></ol></div>
+    </div>
+  </li>
+</ol>
+
+<section class="carry">
+  <h2>Where it carries over</h2>
+  <p>Any email program can use live content the same way: timers, location and stock pulled in at open time. The work is the same too, building it into templates with a fallback and checking it in every client before it goes out.</p>
+  <div class="links"><a class="dark" href="../work/movable-ink-litmus.html">Read the case study</a></div>
+</section>
+
+</div>
+</body>
+</html>
