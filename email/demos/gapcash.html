@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>How a GapCash Email Comes Together | Marcello Miranda</title>
+<meta name="description" content="A step-by-step storyboard of how I built GapCash emails in Salesforce Marketing Cloud: one send, two versions, a test record for every case.">
+<link rel="icon" type="image/svg+xml" href="../../images/icon-email.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="../../css/story.css?v=1">
+<script src="../../css/ga-load.js"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LQWW2RXWQE');</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="back" href="../work/campaigns.html">&larr; Promotional &amp; Lifecycle Email case study</a>
+  <h1>How a GapCash email comes together</h1>
+  <p class="lead">A storyboard of how I built GapCash emails at Gap, from the offer sheet to handoff. Each step shows what happens, with an example, and what my part was.</p>
+  <dl class="ctx"><div><dt>Where</dt><dd>Gap Inc, as Email Developer</dd></div><div><dt>Scale</dt><dd>4 brands, 10,247 emails coded by a team of 15</dd></div><div><dt>My role</dt><dd>HTML, AMPscript and the test data behind each email</dd></div><div><dt>Tools</dt><dd>Salesforce Marketing Cloud, AMPscript, Litmus, Asana</dd></div></dl>
+  <p class="note">The offer details and images come from Gap Factory emails I built in June 2023. Customer data in the examples is test data.</p>
+</header>
+
+<ol class="board">
+  <li class="frame">
+    <div>
+      <div class="step">Step 1 &middot; The offer</div>
+      <h2>It starts with the offer sheet</h2>
+      <p>GapCash was Gap&rsquo;s rewards offer: customers earned it in one window and spent it in the next. The offer sheet set the rules for each send, and every amount, date and exclusion in the email had to match it exactly.</p>
+      <div class="mine"><b>My part</b>Reading the offer sheet line by line and building the email to match it.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Offer sheet</span><span>example</span></div><div class="ex-b"><table class="brief"><tbody><tr><th scope="row">Offer</th><td>Redeem your GapCash</td></tr><tr><th scope="row">Brand</th><td>Gap Factory</td></tr><tr><th scope="row">Redeem window</th><td>6/7&ndash;6/12, at Gap and Gap Factory</td></tr><tr><th scope="row">Redeem tiers</th><td>$20 off $50 &middot; $40 off $100 &middot; $120 off $300</td></tr><tr><th scope="row">Versions</th><td>Earner and non-earner</td></tr><tr><th scope="row">Also in the email</th><td>Up to 75% off, free shipping with code GFSHIP</td></tr></tbody></table></div></div><div class="figure" style="margin-top:20px"><svg viewBox="0 0 560 340" role="img" aria-label="An offer sheet turned into a GapCash email"><rect width="560" height="340" fill="#EFEDE7"/><g stroke="#E2DFD6" stroke-width="1"><path d="M0 0V340"/><path d="M24 0V340"/><path d="M48 0V340"/><path d="M72 0V340"/><path d="M96 0V340"/><path d="M120 0V340"/><path d="M144 0V340"/><path d="M168 0V340"/><path d="M192 0V340"/><path d="M216 0V340"/><path d="M240 0V340"/><path d="M264 0V340"/><path d="M288 0V340"/><path d="M312 0V340"/><path d="M336 0V340"/><path d="M360 0V340"/><path d="M384 0V340"/><path d="M408 0V340"/><path d="M432 0V340"/><path d="M456 0V340"/><path d="M480 0V340"/><path d="M504 0V340"/><path d="M528 0V340"/><path d="M552 0V340"/><path d="M0 0H560"/><path d="M0 24H560"/><path d="M0 48H560"/><path d="M0 72H560"/><path d="M0 96H560"/><path d="M0 120H560"/><path d="M0 144H560"/><path d="M0 168H560"/><path d="M0 192H560"/><path d="M0 216H560"/><path d="M0 240H560"/><path d="M0 264H560"/><path d="M0 288H560"/><path d="M0 312H560"/><path d="M0 336H560"/></g><rect x="46" y="58" width="250" height="250" fill="#161512"/><rect x="40" y="52" width="250" height="250" fill="#fff" stroke="#161512" stroke-width="2.5"/><path d="M40 76H290" stroke="#161512" stroke-width="2.5"/><circle cx="54" cy="64" r="4" fill="none" stroke="#161512" stroke-width="2"/><circle cx="67" cy="64" r="4" fill="none" stroke="#161512" stroke-width="2"/><circle cx="80" cy="64" r="4" fill="none" stroke="#161512" stroke-width="2"/><text x="96" y="68" font-family="Space Mono, monospace" font-size="10" font-weight="700" letter-spacing="1" fill="#161512">OFFER SHEET</text><rect x="60" y="94" width="180" height="7" rx="3" fill="#D9D5CC"/><rect x="60" y="110" width="140" height="7" rx="3" fill="#D9D5CC"/><rect x="60" y="126" width="200" height="7" rx="3" fill="#D9D5CC"/><rect x="60" y="142" width="120" height="7" rx="3" fill="#D9D5CC"/><rect x="60" y="158" width="170" height="7" rx="3" fill="#D9D5CC"/><rect x="60" y="174" width="150" height="7" rx="3" fill="#D9D5CC"/><rect x="60" y="190" width="110" height="7" rx="3" fill="#D9D5CC"/><path d="M300 170 H336" stroke="#D6492F" stroke-width="3" stroke-dasharray="6 5"/><path d="M332 162 L344 170 L332 178" fill="#D6492F"/><rect x="356" y="50" width="150" height="260" rx="22" fill="#161512"/><rect x="350" y="44" width="150" height="260" rx="22" fill="#fff" stroke="#161512" stroke-width="2.5"/><rect x="364" y="74" width="122" height="50" fill="#161512"/><text x="376" y="96" font-family="Archivo, Arial" font-size="13" font-weight="800" fill="#fff">GapCash</text><text x="376" y="114" font-family="Space Mono, monospace" font-size="10" fill="#D8D4CA">REDEEM $60</text><rect x="364" y="134" width="122" height="34" fill="#fff" stroke="#161512" stroke-width="2"/><rect x="430" y="140" width="2" height="22" fill="#161512"/><rect x="436" y="140" width="3" height="22" fill="#161512"/><rect x="442" y="140" width="4" height="22" fill="#161512"/><rect x="448" y="140" width="2" height="22" fill="#161512"/><rect x="454" y="140" width="3" height="22" fill="#161512"/><rect x="460" y="140" width="4" height="22" fill="#161512"/><rect x="466" y="140" width="2" height="22" fill="#161512"/><rect x="472" y="140" width="3" height="22" fill="#161512"/><rect x="370" y="146" width="50" height="5" rx="3" fill="#D9D5CC"/><rect x="370" y="156" width="40" height="5" rx="3" fill="#D9D5CC"/><rect x="364" y="176" width="122" height="34" fill="#fff" stroke="#161512" stroke-width="2"/><rect x="430" y="182" width="2" height="22" fill="#161512"/><rect x="436" y="182" width="3" height="22" fill="#161512"/><rect x="442" y="182" width="2" height="22" fill="#161512"/><rect x="448" y="182" width="3" height="22" fill="#161512"/><rect x="454" y="182" width="2" height="22" fill="#161512"/><rect x="460" y="182" width="3" height="22" fill="#161512"/><rect x="466" y="182" width="2" height="22" fill="#161512"/><rect x="472" y="182" width="3" height="22" fill="#161512"/><rect x="370" y="188" width="50" height="5" rx="3" fill="#D9D5CC"/><rect x="370" y="198" width="36" height="5" rx="3" fill="#D9D5CC"/><rect x="384" y="222" width="82" height="24" fill="#D6492F"/><text x="425" y="238" font-family="Space Mono, monospace" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">SHOP NOW</text><rect x="60" y="270" width="58" height="20" rx="10" fill="#fff" stroke="#161512" stroke-width="2"/><text x="89" y="284" font-family="Space Mono, monospace" font-size="10" font-weight="700" letter-spacing=".5" fill="#161512" text-anchor="middle">EARNER</text><rect x="140" y="270" width="86" height="20" rx="10" fill="#fff" stroke="#161512" stroke-width="2"/><text x="183" y="284" font-family="Space Mono, monospace" font-size="10" font-weight="700" letter-spacing=".5" fill="#161512" text-anchor="middle">NON-EARNER</text><text x="16" y="26" font-family="Space Mono, monospace" font-size="13" font-weight="700" letter-spacing="1.5" fill="#B8381F">OFFER SHEET &#8594; EMAIL</text><rect x="1" y="1" width="558" height="338" fill="none" stroke="#161512" stroke-width="2"/></svg></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 2 &middot; The data</div>
+      <h2>The customer&rsquo;s record drives the email</h2>
+      <p>The data team built the audience. Each customer&rsquo;s record held what the email needed: first name, GapCash balance and their redeem codes. The email reads those fields at send time.</p>
+      <div class="mine"><b>My part</b>Using data extension fields to drive the content, and building test data extensions with custom fields for QA.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Customer record</span><span>data extension</span></div><div class="ex-b"><ul class="fields"><li><span class="k">EmailAddress</span><span class="v code">test.earner@example.com</span></li><li><span class="k">FirstName</span><span class="v">Marcello</span></li><li><span class="k">GC_Total</span><span class="v">$60</span></li><li><span class="k">Code $300</span><span class="v code">N1PWYW24NVTL</span></li><li><span class="k">Code $100</span><span class="v code">PVHDMWVW6BT1</span></li><li><span class="k">Code $50</span><span class="v code">BWG924J99MVT</span></li></ul></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 3 &middot; Two versions</div>
+      <h2>One send, two emails</h2>
+      <p>Every GapCash promotion was really two emails in one send. Earners saw their balance, the redeem tiers and a barcode. Everyone else saw the same promotion with no redeem block, so nobody saw an offer they couldn&rsquo;t use.</p>
+      <div class="mine"><b>My part</b>Building both versions in one email, so the right one showed for each customer.</div>
+    </div>
+    <div>
+<div class="versions"><div class="ex"><div class="ex-h"><span>Earner</span><span>had GapCash</span></div><div class="ex-b"><ul><li>&ldquo;Redeem your $60&rdquo; banner</li><li>Three redeem rows, highest spend first</li><li>A barcode and code for each</li><li>Promotion and products</li></ul></div></div><div class="ex"><div class="ex-h"><span>Non-earner</span><span>everyone else</span></div><div class="ex-b"><ul><li>No redeem banner</li><li>No redeem rows or barcodes</li><li>Same promotion and products</li><li>Same footer and legal</li></ul></div></div></div><p class="cap">Rebuilt with test data: <a href="https://marcello415.github.io/gap-html/gapcash/earner.html">Earner version</a> &middot; <a href="https://marcello415.github.io/gap-html/gapcash/nonearner.html">Non-earner version</a></p>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 4 &middot; Personalizing</div>
+      <h2>The subject line changes by customer</h2>
+      <p>AMPscript put the customer&rsquo;s balance in the subject line, with a fallback when the first name was missing. The same logic was written in French for Gap Factory Canada, where GapCash is DollarsGap.</p>
+      <div class="mine"><b>My part</b>Writing the AMPscript for subject lines and conditional content, in English and French.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Subject line</span><span>what each customer sees</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col">Customer</th><th scope="col">Subject line</th></tr></thead><tbody><tr><td>Name and $40 balance</td><td>&ldquo;Marcello, it&rsquo;s time to use your $40 in GapCash!&rdquo;</td></tr><tr><td>No first name, $40 balance</td><td>&ldquo;It&rsquo;s time to use your $40 in GapCash!&rdquo;</td></tr></tbody></table></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 5 &middot; Reusable parts</div>
+      <h2>Toggles and shared blocks</h2>
+      <p>Toggles at the top of each email showed or hid the rewards, free shipping and promo banners for that send. Legal copy, rewards details and send-date logic came from shared content blocks, so one fix updated every email that used them.</p>
+      <div class="mine"><b>My part</b>Setting the toggles for each send and pulling in the shared blocks.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Top of the email</span><span>per send</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Rewards banner</span><span class="v">On</span></li><li><span class="k">Free shipping banner</span><span class="v">On</span></li><li><span class="k">Promo banner</span><span class="v">Off</span></li><li><span class="k">Legal</span><span class="v">Shared block</span></li><li><span class="k">Send date</span><span class="v">Shared block</span></li></ul></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 6 &middot; Test records</div>
+      <h2>A test record for every case</h2>
+      <p>Before anything went out, I sent the email to test records built for each case, so every version and fallback could be seen.</p>
+      <div class="mine"><b>My part</b>Building the test records and checking every version on test sends.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Test records</span><span>what each should show</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col">Test record</th><th scope="col">Expected</th></tr></thead><tbody><tr><td>Earner with a name</td><td>Name in subject, balance, three redeem rows</td></tr><tr><td>Earner, no first name</td><td>Fallback subject line, balance, redeem rows</td></tr><tr><td>Each balance tier</td><td>Only the rows that customer has codes for</td></tr><tr><td>Non-earner</td><td>No redeem block, no barcode</td></tr></tbody></table></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 7 &middot; QA and handoff</div>
+      <h2>Check everything, then hand it off</h2>
+      <p>The last pass compared the email to the offer sheet and ran it through Litmus. Then it went to the deployment team, who handled the send.</p>
+      <div class="mine"><b>My part</b>Running QA and managing the handoff with producers in Asana.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>QA checklist</span><span>every email</span></div><div class="ex-b"><ul class="check"><li>Amounts, dates and exclusions match the offer sheet</li><li>Barcode and promo code show only in the earner version</li><li>Every link is tracked</li><li>English and French side by side for Canada</li><li>Litmus across Outlook, Gmail, Apple Mail and mobile</li><li>CAN-SPAM footer in place</li></ul></div></div><div style="margin-top:16px"><ol class="flow"><li><span>01</span><b>Build</b>HTML and AMPscript</li><li><span>02</span><b>Test</b>Test records and Litmus</li><li><span>03</span><b>Hand off</b>In Asana, to producers</li><li><span>04</span><b>Deploy</b>The deployment team sends</li></ol></div>
+    </div>
+  </li>
+</ol>
+
+<section class="carry">
+  <h2>Where it carries over</h2>
+  <p>Loyalty email works the same way in any industry. Points, tiers and redeem windows replace GapCash, and the job is still to show each member the offer they qualify for, with the right balance, dates and code, then prove it with a test record for every case.</p>
+  <div class="links"><a class="dark" href="../work/campaigns.html">Read the case study</a><a href="https://marcello415.github.io/gap-html/gapcash/earner.html">Earner version</a><a href="https://marcello415.github.io/gap-html/gapcash/nonearner.html">Non-earner version</a></div>
+</section>
+
+</div>
+</body>
+</html>
