@@ -149,9 +149,9 @@
 
     <section class="cs-body wrap" aria-label="Case study">
       <h2>The job</h2>
-      <div><p>Live content made emails more useful, but it gave them more ways to break. Every email needed checking across clients before deployment.</p></div>
+      <div><p>Gap emails used Movable Ink for live content: widgets and banners built in the Movable Ink app, then embedded in SFMC. Live content made emails more useful, but it gave them more ways to break. Every email needed checking across clients before deployment.</p></div>
       <h2>What I did</h2>
-      <div><ol class="cs-list"><li>Added Movable Ink countdown timers, geo-targeting and inventory feeds to SFMC templates</li><li>Ran Litmus QA for rendering across email clients and devices</li><li>Checked links, tracking and accessibility on every build</li><li>Checked CAN-SPAM requirements before handoff</li><li>Logged and fixed issues before emails went to deployment</li></ol></div>
+      <div><ol class="cs-list"><li>Built widgets and banners in the Movable Ink app and embedded their code in SFMC</li><li>Added Movable Ink countdown timers, geo-targeting and inventory feeds to SFMC templates</li><li>Ran Litmus QA for rendering across email clients and devices</li><li>Checked links, tracking and accessibility on every build</li><li>Checked CAN-SPAM requirements before handoff</li><li>Logged and fixed issues before emails went to deployment</li></ol></div>
 <h2>Live content, up close</h2>
 <div>
 <p>Movable Ink images are built when the email is opened, not when it&rsquo;s sent. That makes them useful, and it means they can break in ways a normal image can&rsquo;t.</p>
@@ -161,9 +161,9 @@
 </div>
 </div>
 <h2>See it working</h2>
-<div><p>A step-by-step storyboard follows live content from the idea to the send: a countdown timer, a geo-targeted store, an inventory feed, the block in the SFMC template, an A/B test and Litmus QA.</p></div>
+<div><p>A step-by-step storyboard follows live content from the Movable Ink app to the send: building widgets, a countdown timer, a geo-targeted store, an inventory feed, a loyalty widget fed from SFMC, the creative tag in the template, spacer images, an A/B test and Litmus QA.</p></div>
 <h2>How I built it</h2>
-<div><ol class="cs-list"><li>Placed Movable Ink blocks into SFMC templates with their tracking parameters</li><li>Kept the &ldquo;display images&rdquo; fallback text for customers with images turned off</li><li>Set up Movable Ink content for A/B tests, such as with and without a timer</li></ol></div>
+<div><ol class="cs-list"><li>Built each widget in the Movable Ink block editor, with layers, a fallback image and app settings</li><li>Embedded the Movable Ink creative tags in SFMC templates with their tracking parameters</li><li>Passed loyalty data like tier and points from SFMC into the status widget as query parameters</li><li>Swapped out spacer images and imported them into Movable Ink, which saved on impressions</li><li>Kept the &ldquo;display images&rdquo; fallback text for customers with images turned off</li><li>Set up Movable Ink content for A/B tests, such as with and without a timer</li></ol></div>
 <h2>How I checked it</h2>
 <div><ol class="cs-list"><li>Ran Litmus across Outlook, Gmail, Apple Mail, mobile and dark mode</li><li>Checked live blocks showed the right timer, store and products</li><li>Clicked every link and confirmed tracking</li><li>Checked the unsubscribe link and mailing address for CAN-SPAM</li><li>Logged issues and re-tested fixes before deployment</li></ol></div>
       <h2>How it helped</h2>
