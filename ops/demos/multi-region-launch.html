@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>How a Product Launches Across Regions | Marcello Miranda</title>
+<meta name="description" content="A storyboard of a product launch across regions, with a made-up brand: geo-coded product URLs, versions for shared-language markets, staging, UAT and go-live.">
+<link rel="icon" type="image/svg+xml" href="../../images/icon-ops.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="../../css/story.css?v=2">
+<script src="../../css/ga-load.js"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LQWW2RXWQE');</script>
+</head>
+<body>
+<header class="site-header">
+    <input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb" hidden>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="../">Marcello Miranda</a>
+      <div class="nav-links">
+        <a href="../#summary">Summary</a>
+        <a href="../#resume">Resume</a>
+        <a href="../#work">Selected work</a>
+        <a class="is-contact" href="../#contact">Contact &#8599;</a>
+      </div>
+      <label class="nav-toggle" for="nav-toggle-cb" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+    </nav>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="../#summary">Summary</a>
+      <a href="../#resume">Resume</a>
+      <a href="../#work">Selected work</a>
+      <a class="is-contact" href="../#contact">Contact &#8599;</a>
+    </div>
+  </header>
+<div class="wrap">
+
+<header class="top">
+  <a class="back" href="../work/launch-ops.html">&larr; Launch Content Operations case study</a>
+  <h1>How a product launches across regions</h1>
+  <p class="lead">A storyboard of one product launch, from the plan to the live pages in every region. Each step shows what happens, with an example, and what my part was.</p>
+  <dl class="ctx"><div><dt>Where</dt><dd>Apple, as a contract Content Manager and Content Specialist</dd></div><div><dt>Scale</dt><dd>100+ locales per launch, 88 countries in the store</dd></div><div><dt>My role</dt><dd>Locale setup, URLs, versions, staging, UAT, release</dd></div><div><dt>Tools</dt><dd>AEM, a proprietary CMS, staging, ticketing, Quip</dd></div></dl>
+  <p class="note">The examples use a made-up brand, Northwind, and a made-up product, the Arc Pro. Apple&rsquo;s own setup stays private. The steps are the ones I followed.</p>
+</header>
+
+<ol class="board">
+  <li class="frame">
+    <div>
+      <div class="step">Step 1 &middot; The plan</div>
+      <h2>Several launches, one tracker</h2>
+      <p>Launches ran on tight, shifting schedules, often several at once. Partner teams needed one place to see what was going live, where and when, and what was blocked.</p>
+      <div class="mine"><b>My part</b>Tracking each launch&rsquo;s status in shared trackers and reporting it in weekly partner meetings.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Launch tracker</span><span>example week</span></div><div class="ex-b"><table class="cmp"><thead><tr><th scope="col">Launch</th><th scope="col">Regions</th><th scope="col">Stage</th><th scope="col">Status</th></tr></thead><tbody><tr><td>Arc Pro</td><td>Americas, Europe, Asia Pacific</td><td>Done</td><td>In UAT</td></tr><tr><td>Arc Pro cases</td><td>Americas, Europe</td><td>Done</td><td>Ready</td></tr><tr><td>Weekly nav</td><td>All</td><td>Queued</td><td>Weekly release</td></tr><tr><td>Arc Air colors</td><td>Asia Pacific</td><td>&mdash;</td><td class="chg">Blocked: missing copy</td></tr></tbody></table></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 2 &middot; Geo-coded URLs</div>
+      <h2>Every locale has its own address</h2>
+      <p>Each country&rsquo;s store lives under its own path. The product page is the same page, but every link on it has to start with that locale&rsquo;s path. A French Canadian page that links to a US page sends the customer to the wrong store.</p>
+      <div class="mine"><b>My part</b>Setting up pages for each locale and checking that every link stayed inside its own locale.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Arc Pro</span><span>one product, many URLs</span></div><div class="ex-b"><table class="cmp loc"><thead><tr><th scope="col">Locale</th><th scope="col">Product URL</th><th scope="col">Links</th></tr></thead><tbody><tr><td class="k">en_US</td><td class="mono">/us/shop/arc-pro</td><td class="st match">OK</td></tr><tr><td class="k">en_CA</td><td class="mono">/ca/shop/arc-pro</td><td class="st match">OK</td></tr><tr><td class="k">fr_CA</td><td class="mono">/ca/fr/shop/arc-pro</td><td class="st chg">1 link to /us/</td></tr><tr><td class="k">en_GB</td><td class="mono">/uk/shop/arc-pro</td><td class="st match">OK</td></tr><tr><td class="k">fr_FR</td><td class="mono">/fr/shop/arc-pro</td><td class="st match">OK</td></tr><tr><td class="k">ja_JP</td><td class="mono">/jp/shop/arc-pro</td><td class="st match">OK</td></tr></tbody></table></div></div>
+<p class="cap">The fr_CA page had a &ldquo;Buy&rdquo; link pointing at /us/. That&rsquo;s the kind of miss UAT is for.</p>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 3 &middot; Shared languages</div>
+      <h2>Same language, separate versions</h2>
+      <p>Markets that share a language still get their own version. English in the US, UK and Canada reads almost the same, but prices, spelling, legal copy and links differ.</p>
+      <div class="mine"><b>My part</b>Setting up separate versions where markets shared a language, and checking them side by side.</div>
+    </div>
+    <div>
+<div class="versions"><div class="ex"><div class="ex-h"><span>en_US</span><span>/us/</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Spelling</span><span class="v">color</span></li><li><span class="k">Currency</span><span class="v">USD</span></li><li><span class="k">Legal</span><span class="v">US terms</span></li><li><span class="k">Links</span><span class="v code">/us/&hellip;</span></li></ul></div></div><div class="ex"><div class="ex-h"><span>en_GB</span><span>/uk/</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Spelling</span><span class="v">colour</span></li><li><span class="k">Currency</span><span class="v">GBP</span></li><li><span class="k">Legal</span><span class="v">UK terms</span></li><li><span class="k">Links</span><span class="v code">/uk/&hellip;</span></li></ul></div></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 4 &middot; Market and segment</div>
+      <h2>Who sees which page</h2>
+      <p>Content was set up by market and by customer segment. A business customer and a consumer in the same country could see different versions of the same product page.</p>
+      <div class="mine"><b>My part</b>Setting up page content by market and customer segment from each request.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Page versions</span><span>Arc Pro</span></div><div class="ex-b"><table class="specs"><thead><tr><th scope="col">Market</th><th scope="col">Consumer</th><th scope="col">Business</th></tr></thead><tbody><tr><td>US</td><td>&#10003;</td><td>&#10003;</td></tr><tr><td>Canada (EN, FR)</td><td>&#10003;</td><td>&#10003;</td></tr><tr><td>UK</td><td>&#10003;</td><td>&#10003;</td></tr><tr><td>France</td><td>&#10003;</td><td>&mdash;</td></tr><tr><td>Japan</td><td>&#10003;</td><td>&mdash;</td></tr></tbody></table></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 5 &middot; Translations</div>
+      <h2>Copy comes back by locale</h2>
+      <p>Localized copy came back for each market and had to land on the right page. A translation on the wrong locale looks fine at a glance and is still wrong.</p>
+      <div class="mine"><b>My part</b>Coordinating translations and matching each one to its locale&rsquo;s page.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Translation check</span><span>headline</span></div><div class="ex-b"><ul class="fields"><li><span class="k">en_US</span><span class="v">Arc Pro. Built to go further.</span></li><li><span class="k">fr_FR</span><span class="v">Arc Pro. Con&ccedil;u pour aller plus loin.</span></li><li><span class="k">fr_CA</span><span class="v">Arc Pro. Con&ccedil;u pour aller plus loin.</span></li><li><span class="k">ja_JP</span><span class="v">Arc Pro&#12290;&#12418;&#12387;&#12392;&#36960;&#12367;&#12408;&#12290;</span></li></ul><p class="cap">Every locale has copy, and none is still in English.</p></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 6 &middot; Staging</div>
+      <h2>Build it where customers can&rsquo;t see it</h2>
+      <p>The launch was built and previewed in staging first. Developer code handoffs and updated stylesheets went in, then each locale was opened and checked before release.</p>
+      <div class="mine"><b>My part</b>Entering code handoffs, loading stylesheets and checking every page in staging before launch.</div>
+    </div>
+    <div>
+<div class="ex"><div class="ex-h"><span>Staging check</span><span>per locale</span></div><div class="ex-b"><ul class="check"><li>Code handoff entered</li><li>Updated stylesheet loaded</li><li>Metadata complete</li><li>Right version for the market and segment</li><li>Every link starts with the locale&rsquo;s path</li><li>Images and copy match the locale</li></ul></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 7 &middot; UAT</div>
+      <h2>Check author, then stage</h2>
+      <p>UAT ran in AEM author and again in stage. Anything wrong was written up for developers and business partners, then checked again once fixed.</p>
+      <div class="mine"><b>My part</b>Running UAT, writing up CMS bugs and confirming fixes before sign-off.</div>
+    </div>
+    <div>
+<div class="ticket"><div class="ex-h"><span>Bug write-up</span><span>example</span></div><div class="ex-b"><ul class="fields"><li><span class="k">Page</span><span class="v code">/ca/fr/shop/arc-pro</span></li><li><span class="k">Found in</span><span class="v">Stage</span></li><li><span class="k">Expected</span><span class="v">&ldquo;Acheter&rdquo; links to /ca/fr/shop/buy-arc-pro</span></li><li><span class="k">Actual</span><span class="v">Links to /us/shop/buy-arc-pro</span></li><li><span class="k">Status</span><span class="v">Fixed, re-checked in stage</span></li></ul></div></div>
+    </div>
+  </li>
+
+  <li class="frame">
+    <div>
+      <div class="step">Step 8 &middot; Go-live and after</div>
+      <h2>Release, check live, report</h2>
+      <p>Pages went live on the scheduled date. Then a spot check on the live site in each region, tickets closed and status back to the team.</p>
+      <div class="mine"><b>My part</b>Releasing on schedule, checking live pages and raising blockers in daily stand-ups.</div>
+    </div>
+    <div>
+<ol class="flow"><li><span>01</span><b>Release</b>Pages go live on the scheduled date</li><li><span>02</span><b>Check live</b>Spot-check each region&rsquo;s pages</li><li><span>03</span><b>Close</b>Tickets marked done</li><li><span>04</span><b>Report</b>Status in stand-up and partner meetings</li></ol>
+    </div>
+  </li>
+</ol>
+
+<section class="carry">
+  <h2>Where it carries over</h2>
+  <p>Any store that sells in more than one country runs launches this way: a URL per locale, a version per market, a check in staging and UAT before anything goes live.</p>
+  <div class="links"><a class="dark" href="../work/launch-ops.html">Read the case study</a></div>
+</section>
+
+</div>
+</body>
+</html>
