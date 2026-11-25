@@ -10,4 +10,4 @@ Contact: https://www.linkedin.com/in/marcellomiranda
 - Writing clear rules, checklists and SOPs so work is done the same way every time
 
 ## Case studies
-- [Job Search Automation](https://marcello415.github.io/portfolio-html/ai/work/job-search-automation.html): Four Claude skills I built that find openings, write tailored cover letters, fill out applications and log every one. 650 applications so far, all tracked in one place.
+- [Job Search Automation](https://marcello415.github.io/portfolio-html/ai/work/job-search-automation.html): Four Claude skills I built that find openings, write tailored cover letters, fill out applications and log every one. 678 applications so far, all tracked in one place.
